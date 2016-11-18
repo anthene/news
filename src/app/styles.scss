@@ -1,0 +1,21 @@
+body {
+	margin: 0;
+}
+
+.short-news-list {
+	list-style-type: none;
+	width: 200px;
+
+	.short-news {
+		display: flex;
+		justify-content: space-between;
+
+		.time {
+			width: 50px;
+		}
+
+		.header {
+			width: 100px;
+		}
+	}
+}
