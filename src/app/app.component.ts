@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ShortNews } from './news';
+import { ShortNews, NewsListItem } from './news';
 import { NewsService } from './news-service';
 
 @Component({
@@ -10,6 +10,7 @@ import { NewsService } from './news-service';
 })
 export class AppComponent implements OnInit {
 	shortNewsList: ShortNews[];
+	newsList: NewsListItem[];
 
 	constructor(private newsService: NewsService) {
 	}
@@ -17,5 +18,7 @@ export class AppComponent implements OnInit {
 	ngOnInit(): void {
 		this.newsService.getShortNews()
 		.then(shortNewsList => this.shortNewsList = shortNewsList);
+		this.newsService.getNewsList()
+		.then(newsList => this.newsList = newsList);
 	}
 }

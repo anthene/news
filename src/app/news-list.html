@@ -1,6 +1,17 @@
-<ul class="short-news-list">
-	<li *ngFor="let shortNews of shortNewsList" class="short-news">
-		<div class="time">{{shortNews.date}}</div>
-		<div class="header">{{shortNews.header}}</div>
-	</li>
-</ul>
+<div class="content">
+	<div class="short-news-list">
+		<div *ngFor="let shortNews of shortNewsList" class="short-news">
+			<div class="time">{{shortNews.date}}</div>
+			<div class="header">{{shortNews.header}}</div>
+		</div>
+	</div>
+	<div class="news-list">
+		<div *ngFor="let newsListItem of newsList" class="news-list-item">
+			<img class="image" src="{{newsListItem.image.data}}"/>
+			<div class="time">{{newsListItem.date}}</div>
+			<div class="header">{{newsListItem.header}}</div>
+		</div>
+	</div>
+	<div class="advertising">
+	</div>
+</div>
