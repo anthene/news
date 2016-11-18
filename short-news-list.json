@@ -1,0 +1,6 @@
+[
+  { "date": 1, "header": "First news" },
+  { "date": 2, "header": "Second news" },
+  { "date": 3, "header": "Third news" },
+  { "date": 4, "header": "Forth news" }
+]
