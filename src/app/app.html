@@ -1,0 +1,12 @@
+<h1 class="page-header" (click)="router.navigate(['/newslist'])">
+	Новости
+</h1>
+<div class="content">
+	<div class="short-news-list">
+		<div *ngFor="let shortNews of shortNewsList" class="short-news">
+			<div class="time">{{shortNews.date}}</div>
+			<div class="header">{{shortNews.header}}</div>
+		</div>
+	</div>
+	<router-outlet></router-outlet>
+</div>
