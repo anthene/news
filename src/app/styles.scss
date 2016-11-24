@@ -1,18 +1,9 @@
+@import "variables";
+@import "helpers";
+@import "mixins";
+
 body {
 	margin: 0;
-}
-
-$content-max-width: 1000px;
-
-$indent: 20px;
-
-$news-list-item-bottom-border-width: 1px;
-$news-list-item-bottom-border-color: #aaa;
-$news-list-item-bottom-padding: 10px;
-
-@mixin news-item-bottom-border {
-	padding-bottom: $news-list-item-bottom-padding;
-	border-bottom: $news-list-item-bottom-border-width solid $news-list-item-bottom-border-color;
 }
 
 .page-header, .short-news-list, .news-list, .advertising {
@@ -47,7 +38,7 @@ $news-list-item-bottom-padding: 10px;
 		flex: 2;
 		display: flex;
 		flex-wrap: wrap;
-		
+
 		.news-list-item {
 			@include news-item-bottom-border;
 
@@ -60,6 +51,21 @@ $news-list-item-bottom-padding: 10px;
 			
 			.header {
 			}
+		}
+	}
+	
+	.news {
+		.image {
+			width: 100%;
+		}
+		
+		.time {
+		}
+		
+		.header {
+		}
+		
+		.text {
 		}
 	}
 

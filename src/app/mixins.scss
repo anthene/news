@@ -1,0 +1,6 @@
+@import "variables";
+
+@mixin news-item-bottom-border {
+	padding-bottom: $news-list-item-bottom-padding;
+	border-bottom: $news-list-item-bottom-border-width solid $news-list-item-bottom-border-color;
+}
