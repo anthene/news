@@ -2,6 +2,8 @@
 	<img class="image" src="{{news.image.data}}"/>
 	<div class="time">{{news.date}}</div>
 	<div class="header">{{news.header}}</div>
-	<div class="text">{{news.text}}</div>
+	<div class="text">
+		<p *ngFor="let contentItem of news.content">{{contentItem}}</p>
+	</div>
 </div>
 

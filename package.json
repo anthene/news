@@ -2,7 +2,7 @@
   "name": "news",
   "version": "0.1.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "webpack && lite-server",
     "wp": "webpack",
     "lite": "lite-server",
     "tsc": "tsc",
