@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NewsListComponent } from './news-list.component';
 import { NewsComponent } from './news.component';
 import { NewsService } from './news-service';
+import { NewsConverter } from './news-converter';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 		AppRoutingModule
 	],
 	declarations: [ AppComponent, NewsListComponent, NewsComponent ],
-	providers: [ NewsService ],
+	providers: [ NewsService, NewsConverter ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 <div class="news-list">
 	<div *ngFor="let newsListItem of newsList" class="news-list-item pointer" (click)="router.navigate(['/news', newsListItem.id])">
 		<img class="image" src="{{newsListItem.image.data}}"/>
-		<div class="time">{{newsListItem.date}}</div>
+		<div class="time">{{newsListItem.date.toLocaleString()}}</div>
 		<div class="header">{{newsListItem.header}}</div>
 	</div>
 </div>
