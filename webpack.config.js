@@ -10,7 +10,7 @@ var output = "./bin";
 module.exports = {
     context: path.join(__dirname, "src/app"),
     entry: {
-        'app': './app.ts'
+        'app': './ts/app.ts'
     },
     output: {
         path: output,
@@ -52,7 +52,7 @@ module.exports = {
         new CleanWebpackPlugin([output]),
         new CopyWebpackPlugin([
             //{ from: 'images', to: "images" },
-            { from: "../*.json", to: output },
+            { from: "../data/*.json", to: 'data' },
             { from: '**/*.html', to: "app" },
             { from: "../../node_modules/core-js/client/shim.min.js", to: "libs" },
             { from: "../../node_modules/zone.js/dist/zone.min.js", to: "libs" },

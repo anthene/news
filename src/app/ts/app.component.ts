@@ -7,7 +7,7 @@ import { NewsService } from './news-service';
 @Component({
 	//moduleId: module.id,
 	selector: 'app',
-	templateUrl: 'app/app.html',
+	templateUrl: 'app/html/app.html',
 })
 export class AppComponent implements OnInit {
 	shortNewsList: ShortNews[];

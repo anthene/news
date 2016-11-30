@@ -8,7 +8,7 @@ import { NewsService } from './news-service';
 @Component({
 	//moduleId: module.id,
 	//selector: 'news',
-	templateUrl: 'app/news.html'
+	templateUrl: 'app/html/news.html'
 })
 export class NewsComponent implements OnInit {
 	news: News;

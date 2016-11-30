@@ -6,8 +6,9 @@ import 'rxjs/add/operator/toPromise';
 import { ShortNews, NewsListItem, News } from './news';
 import { NewsConverter } from './news-converter';
 
-const shortNewsPath = 'short-news-list.json';
-const newsListItemPath = 'news-list.json';
+const dataPath = 'data';
+const shortNewsPath = `${dataPath}/short-news-list.json`;
+const newsListItemPath = `${dataPath}/news-list.json`;
 
 @Injectable()
 export class NewsService {
@@ -31,7 +32,7 @@ export class NewsService {
 	}
 
 	getNews(id: number): Promise<News> {
-		return this.http.get(`${id}.json`)
+		return this.http.get(`${dataPath}/${id}.json`)
 		.toPromise()
 		.then(res => this.newsConverter.newsFromJson(res.json()))
 		.catch(this.handleError);
