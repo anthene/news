@@ -1,0 +1,10 @@
+@import "variables";
+
+@media screen and (max-width: $page-size-xs) {
+	.content {
+
+		.short-news-list, .advertising {
+			display: none;
+		}
+	}
+}

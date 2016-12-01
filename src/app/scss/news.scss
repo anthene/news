@@ -1,0 +1,28 @@
+.content {
+
+	.news {
+		background: $news-list-item-background;
+		margin: $indent / 2;
+		padding: $indent;
+
+		.image {
+			width: 100%;
+		}
+		
+		.time {
+			margin: $indent 0;
+			color: $light-font-color;
+		}
+		
+		.header {
+			font-weight: bold;
+			font-size: x-large;
+		}
+		
+		.text {
+			p {
+				text-align: justify;
+			}
+		}
+	}
+}

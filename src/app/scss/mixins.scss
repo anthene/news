@@ -4,3 +4,8 @@
 	padding-bottom: $news-list-item-bottom-padding;
 	border-bottom: $news-list-item-bottom-border-width solid $news-list-item-bottom-border-color;
 }
+
+@mixin indents {
+	margin: $indent / 2;
+	padding: $indent / 2;
+}

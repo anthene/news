@@ -10,7 +10,8 @@ var output = "./bin";
 module.exports = {
     context: path.join(__dirname, "src/app"),
     entry: {
-        'app': './ts/app.ts'
+        'app': './ts/main.ts',
+        'style': './scss/main.scss',
     },
     output: {
         path: output,

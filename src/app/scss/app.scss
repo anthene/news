@@ -1,0 +1,50 @@
+@import "variables";
+@import "helpers";
+@import "mixins";
+@import "news-list";
+@import "news";
+
+.advertising {
+	margin: $indent / 2;
+}
+
+.page-header {
+	margin: 0;
+	@include news-item-bottom-border;
+	padding: $indent;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: $news-list-item-background;
+}
+
+.content {
+	max-width: $content-max-width;
+	margin: auto;
+	margin-top: $header-height;
+	padding: $indent / 2;
+	display: flex;
+
+	.short-news-list {
+		font-size: small;
+
+		.short-news {
+			background: $news-list-item-background;
+			display: flex;
+			@include indents;
+			margin-bottom: $indent;
+
+			.time, .header {
+				margin: $indent / 2;
+			}
+
+			.time {
+				color: $light-font-color;
+			}
+		}
+	}
+
+	.advertising {
+		background: $news-list-item-bottom-border-color;
+	}
+}
