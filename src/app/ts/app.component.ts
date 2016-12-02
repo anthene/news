@@ -11,6 +11,7 @@ import { NewsService } from './news-service';
 })
 export class AppComponent implements OnInit {
 	shortNewsList: ShortNews[];
+	currentMenuItem = MenuItem.News;
 
 	constructor(
 		public router: Router, // todo: make private
@@ -20,6 +21,11 @@ export class AppComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.newsService.getShortNews()
-		.then(shortNewsList => this.shortNewsList = shortNewsList);
+		.then((shortNewsList: ShortNews[]) => this.shortNewsList = shortNewsList);
 	}
+}
+
+enum MenuItem {
+	ShortNews,
+	News
 }

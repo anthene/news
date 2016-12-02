@@ -1,0 +1,19 @@
+@import "variables";
+
+.menu {
+	position: fixed;
+	width: 100%;
+	top: $header-height;
+	background: $news-list-item-background;
+	justify-content: center;
+	
+	.menu-item {
+		background: $menu-item-color;
+		margin: 0 $indent / 2;
+		padding: $indent 2 * $indent;
+	}
+
+	.active-menu-item {
+		background: $active-menu-item-color;
+	}
+}

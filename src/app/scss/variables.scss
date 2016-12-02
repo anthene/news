@@ -1,10 +1,9 @@
 $body-background: #ccc;
 
-$content-max-width: 1024px;
-
 $indent: 10px;
 
 $header-height: 58px;
+$menu-height: 39px;
 
 $news-list-item-background: #fff;
 
@@ -12,7 +11,13 @@ $news-list-item-bottom-border-width: 1px;
 $news-list-item-bottom-border-color: #aaa;
 $news-list-item-bottom-padding: 10px;
 
+$page-size-min: 320px;
 $page-size-xs: 480px;
 $page-size-m: 768px;
+$page-size-l: 1024px;
+
+$side-column-width: $page-size-min - 2 * $indent;
 
 $light-font-color: #999;
+$menu-item-color: #eee;
+$active-menu-item-color: $body-background;

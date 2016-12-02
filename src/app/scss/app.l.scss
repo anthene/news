@@ -1,0 +1,9 @@
+@import "variables";
+
+@media screen and (max-width: $page-size-l) {
+	.content {
+		.advertising {
+			display: none;
+		}
+	}
+}

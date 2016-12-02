@@ -1,10 +1,21 @@
 @import "variables";
 
 @media screen and (max-width: $page-size-xs) {
-	.content {
+	.menu {
+		display: flex;
+	}
 
-		.short-news-list, .advertising {
+	.content {
+		margin-top: $header-height + $menu-height;
+
+		.advertising {
 			display: none;
 		}
+	}
+}
+
+@media screen and (min-width: $page-size-xs + 1) {
+	.short-news-list, .news-content {
+		display: block;
 	}
 }

@@ -1,14 +1,29 @@
 <h1 class="page-header pointer" (click)="router.navigate(['/newslist'])">
 	Последние новости
 </h1>
+<div class="menu hidden">
+	<div class="menu-item pointer" (click)="currentMenuItem = 0" [class.active-menu-item]="currentMenuItem === 0">
+		Одной строкой
+	</div>
+	<div class="menu-item pointer" (click)="currentMenuItem = 1" [class.active-menu-item]="currentMenuItem === 1">
+		Главное
+	</div>
+</div>
 <div class="content">
-	<div class="short-news-list">
+	<div class="short-news-list" [class.hidden]="currentMenuItem !== 0">
 		<div *ngFor="let shortNews of shortNewsList" class="short-news">
 			<div class="time">{{shortNews.date.toTime()}}</div>
 			<div class="header">{{shortNews.header}}</div>
 		</div>
 	</div>
-	<router-outlet></router-outlet>
+
+	<div class="news-content" [class.hidden]="currentMenuItem !== 1">
+		<router-outlet></router-outlet>
+	</div>
+
 	<div class="advertising">
+		<a href="http://www.rusfond.ru/" title="Русфонд" target="_blank">
+			<IMG src="http://www.rusfond.ru/pics/ipict/300x600.jpg" width="300" height="600" hspace="0" vspace="0" border="0" alt="Русфонд">
+		</a>
 	</div>
 </div>
