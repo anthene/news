@@ -5,7 +5,9 @@ import 'rxjs/add/operator/toPromise';
 
 import { ShortNews, NewsListItem, News } from './news';
 import { NewsConverter } from './news-converter';
+import getMinSizeArray from './get-min-size-array';
 
+const millisecondsInDay = 24 * 60 * 60 * 1000;
 const dataPath = 'data';
 const shortNewsPath = `${dataPath}/short-news-list.json`;
 const newsListItemPath = `${dataPath}/news-list.json`;
@@ -17,29 +19,32 @@ export class NewsService {
 		private newsConverter: NewsConverter
 	) { }
 
-	getShortNews(): Promise<ShortNews[]> {
-		return this.http.get(shortNewsPath)
-		.toPromise()
-		.then(res => this.newsConverter.shortNewsListFromJson(res.json()))
-		.catch(this.handleError);
+	getShortNews() {
+		return this.getData(shortNewsPath, this.newsConverter.shortNewsListFromJson);
 	}
 
-	getNewsList(): Promise<NewsListItem[]> {
-		return this.http.get(newsListItemPath)
-		.toPromise()
-		.then(res => this.newsConverter.newsListFromJson(res.json()))
-		.catch(this.handleError);
+	getNewsList() {
+		return getMinSizeArray(11, day => this.getData(`${dataPath}/news-list-${getDate(day)}.json`, this.newsConverter.newsListFromJson));
 	}
 
-	getNews(id: number): Promise<News> {
-		return this.http.get(`${dataPath}/${id}.json`)
-		.toPromise()
-		.then(res => this.newsConverter.newsFromJson(res.json()))
-		.catch(this.handleError);
+	getNews(id: number) {
+		return this.getData(`${dataPath}/${id}.json`, this.newsConverter.newsFromJson);
 	}
 
-	private handleError(error: any): Promise<any> {
-		console.error('An error occurred', error); // for demo purposes only
-		return Promise.reject(error.message || error);
+	private getData<T>(url: string, converter: (json: any) => T): Promise<T> {
+		return this.http.get(url)
+			.toPromise()
+			.then(response => converter(response.json()))
+			.catch(handleError);
 	}
+}
+
+function getDate(day: number) {
+	const date = new Date(new Date().valueOf() - day * millisecondsInDay) as any;
+	return `${date.getUTCFullYear()}${(1+date.getUTCMonth()).to00()}${date.getUTCDate().to00()}`;
+}
+
+function handleError(error: any): Promise<any> {
+	console.error('An error occurred', error); // for demo purposes only
+	return Promise.reject(error.message || error);
 }

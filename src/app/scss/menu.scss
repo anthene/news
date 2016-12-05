@@ -4,6 +4,7 @@
 	position: fixed;
 	width: 100%;
 	top: $header-height;
+	border-bottom: $indent solid $body-background;
 	background: $news-list-item-background;
 	justify-content: center;
 	
