@@ -7,10 +7,12 @@ import { ShortNews, NewsListItem, News } from './news';
 import { NewsConverter } from './news-converter';
 import getMinSizeArray from './get-min-size-array';
 
+const minDate = new Date(2016, 12, 1);
+const newsCount = 5;
+const shortNewsCount = 30;
+
 const millisecondsInDay = 24 * 60 * 60 * 1000;
 const dataPath = 'data';
-const shortNewsPath = `${dataPath}/short-news-list.json`;
-const newsListItemPath = `${dataPath}/news-list.json`;
 
 @Injectable()
 export class NewsService {
@@ -20,11 +22,15 @@ export class NewsService {
 	) { }
 
 	getShortNews() {
-		return this.getData(shortNewsPath, this.newsConverter.shortNewsListFromJson);
+		return getMinSizeArray(shortNewsCount,
+		day => this.getData(`${dataPath}/short-news-list-${getDate(day)}.json`,
+		this.newsConverter.shortNewsListFromJson));
 	}
 
 	getNewsList() {
-		return getMinSizeArray(11, day => this.getData(`${dataPath}/news-list-${getDate(day)}.json`, this.newsConverter.newsListFromJson));
+		return getMinSizeArray(newsCount,
+		day => this.getData(`${dataPath}/news-list-${getDate(day)}.json`,
+		this.newsConverter.newsListFromJson));
 	}
 
 	getNews(id: number) {
