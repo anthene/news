@@ -8,6 +8,7 @@ var path = require('path');
 var output = "./bin";
 
 module.exports = {
+    devtool: 'source-map',
     context: path.join(__dirname, "src/app"),
     entry: {
         'app': './ts/main.ts',

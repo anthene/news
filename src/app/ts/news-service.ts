@@ -5,11 +5,11 @@ import 'rxjs/add/operator/toPromise';
 
 import { ShortNews, NewsListItem, News } from './news';
 import { NewsConverter } from './news-converter';
-import getMinSizeArray from './get-min-size-array';
+import { ListResult, getMinSizeArray } from './get-min-size-array';
 
-const minDate = new Date(2016, 12, 1);
+const minPossibleDate = new Date(2016, 11, 1);
 const newsCount = 5;
-const shortNewsCount = 30;
+const shortNewsCount = 15;
 
 const millisecondsInDay = 24 * 60 * 60 * 1000;
 const dataPath = 'data';
@@ -21,16 +21,20 @@ export class NewsService {
 		private newsConverter: NewsConverter
 	) { }
 
-	getShortNews() {
-		return getMinSizeArray(shortNewsCount,
-		day => this.getData(`${dataPath}/short-news-list-${getDate(day)}.json`,
-		this.newsConverter.shortNewsListFromJson));
+	getShortNews(maxDate = new Date(), minDate = minPossibleDate): Promise<ListResult<ShortNews>> {
+		return getMinSizeArray(
+			shortNewsCount,
+			day => this.getData(`${dataPath}/short-news-list-${getDate(day, maxDate)}.json`, this.newsConverter.shortNewsListFromJson),
+			maxDate,
+			minDate);
 	}
 
-	getNewsList() {
-		return getMinSizeArray(newsCount,
-		day => this.getData(`${dataPath}/news-list-${getDate(day)}.json`,
-		this.newsConverter.newsListFromJson));
+	getNewsList(maxDate = new Date(), minDate = minPossibleDate): Promise<ListResult<NewsListItem>> {
+		return getMinSizeArray(
+			newsCount,
+			day => this.getData(`${dataPath}/news-list-${getDate(day, maxDate)}.json`, this.newsConverter.newsListFromJson),
+			maxDate,
+			minDate);
 	}
 
 	getNews(id: number) {
@@ -45,8 +49,8 @@ export class NewsService {
 	}
 }
 
-function getDate(day: number) {
-	const date = new Date(new Date().valueOf() - day * millisecondsInDay) as any;
+function getDate(day: number, maxDate: Date) {
+	const date = new Date(maxDate.valueOf() - day * millisecondsInDay) as any;
 	return `${date.getUTCFullYear()}${(1+date.getUTCMonth()).to00()}${date.getUTCDate().to00()}`;
 }
 

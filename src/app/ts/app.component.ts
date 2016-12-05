@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 
 import { ShortNews } from './news';
 import { NewsService } from './news-service';
+import { ListResult } from './get-min-size-array';
+
+const millisecondsInDay = 24 * 60 * 60 * 1000;
 
 @Component({
 	//moduleId: module.id,
@@ -10,7 +13,8 @@ import { NewsService } from './news-service';
 	templateUrl: 'app/html/app.html',
 })
 export class AppComponent implements OnInit {
-	shortNewsList: ShortNews[];
+	shortNewsList: ShortNews[] = [];
+	lastDate = new Date();
 	currentMenuItem = MenuItem.News;
 
 	constructor(
@@ -20,8 +24,19 @@ export class AppComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.newsService.getShortNews()
-		.then((shortNewsList: ShortNews[]) => this.shortNewsList = shortNewsList);
+		this.getData(new Date());
+	}
+
+	getMoreNews(): void {
+		this.getData(new Date(this.lastDate.valueOf()));
+	}
+
+	private getData(maxDate: Date): void {
+		this.newsService.getShortNews(maxDate)
+		.then((shortNewsListResult: ListResult<ShortNews>) => {
+				this.shortNewsList = this.shortNewsList.concat(shortNewsListResult.list);
+				this.lastDate = shortNewsListResult.minDate;
+			});
 	}
 }
 

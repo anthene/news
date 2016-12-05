@@ -1,23 +1,37 @@
-export default function getMinSizeArray<T>(
+const millisecondsInDay = 24 * 60 * 60 * 1000;
+
+export interface ListResult<T> {
+	list: T[];
+	minDate: Date;
+}
+
+export function getMinSizeArray<T>(
 		minCount: number,
 		getArrayPromise: (step: number) => Promise<T[]>,
+		maxDate: Date,
+		minDate: Date,
 		step = 0,
-		initialArray: T[] = []): Promise<T[]> {
+		initialArray: T[] = []): Promise<ListResult<T>> {
+
+	if (maxDate.valueOf() - step * millisecondsInDay < minDate.valueOf())
+		return Promise.resolve({ list: initialArray, minDate: minDate });
 
 	return getArrayPromise(step)
-		.then(result => callGetMinSizeArrayIfNeeded(result, minCount, getArrayPromise, step + 1, initialArray))
-		.catch(result => callGetMinSizeArrayIfNeeded(result, minCount, getArrayPromise, step + 1, initialArray));
+		.then(result => callGetMinSizeArrayIfNeeded(result, minCount, getArrayPromise, maxDate, minDate, step + 1, initialArray))
+		.catch(result => callGetMinSizeArrayIfNeeded(result, minCount, getArrayPromise, maxDate, minDate, step + 1, initialArray));
 }
 
 function callGetMinSizeArrayIfNeeded<T>(
 		result: T[],
 		minCount: number,
 		getArrayPromise: (step: number) => Promise<T[]>,
+		maxDate: Date,
+		minDate: Date,
 		step: number,
-		initialArray: T[]) {
+		initialArray: T[]): Promise<ListResult<T>> {
 
 	const array = initialArray.concat(result);
 	return array.length >= minCount
-		? array
-		: getMinSizeArray(minCount, getArrayPromise, step, array);
+		? Promise.resolve({ list: array, minDate: new Date(maxDate.valueOf() - step * millisecondsInDay) })
+		: getMinSizeArray(minCount, getArrayPromise, maxDate, minDate, step, array);
 }

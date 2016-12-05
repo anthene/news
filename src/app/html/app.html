@@ -15,6 +15,9 @@
 			<div class="time">{{shortNews.date.toTime()}}</div>
 			<div class="header">{{shortNews.header}}</div>
 		</div>
+		<div class="more-news" (click)="getMoreNews()">
+			Еще новости
+		</div>
 	</div>
 
 	<div class="news-content" [class.hidden]="currentMenuItem !== 1">
