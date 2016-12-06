@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		".vscode": true,
+		"**/*.gitignore": true,
+		"bin": true,
+		"node_modules": true,
+		"app/**/*.js.map": true,
+		"app/**/*.js": true
+	}
+}

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ShortNews } from './news';
 import { NewsService } from './news-service';
 import { ListResult } from './get-min-size-array';
+import { toTime } from './extensions';
 
 const millisecondsInDay = 24 * 60 * 60 * 1000;
 
@@ -29,6 +30,10 @@ export class AppComponent implements OnInit {
 
 	getMoreNews(): void {
 		this.getData(new Date(this.lastDate.valueOf()));
+	}
+
+	toTime(date: Date) {
+		return toTime(date);
 	}
 
 	private getData(maxDate: Date): void {

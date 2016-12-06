@@ -12,7 +12,7 @@
 <div class="content">
 	<div class="short-news-list" [class.hidden]="currentMenuItem !== 0">
 		<div *ngFor="let shortNews of shortNewsList" class="short-news">
-			<div class="time">{{shortNews.date.toTime()}}</div>
+			<div class="time">{{toTime(shortNews.date)}}</div>
 			<div class="header">{{shortNews.header}}</div>
 		</div>
 		<div class="more-news" (click)="getMoreNews()">

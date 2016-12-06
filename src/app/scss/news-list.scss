@@ -7,9 +7,11 @@
 		flex-wrap: wrap;
 
 		.news-list-item {
+			flex: 1 2 $news-list-item-flex-basis;
 			background: $news-list-item-background;
 			padding: $indent;
 			margin: $indent / 2;
+			width: 100%;
 
 			.image {
 				width: 100%;
@@ -19,6 +21,10 @@
 				color: $light-font-color;
 				margin: $indent 0;
 			}
+		}
+
+		.first-news-list-item {
+			flex: 0 1 auto;
 		}
 	}
 }

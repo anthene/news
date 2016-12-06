@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 import { ShortNews, NewsListItem, News } from './news';
 import { NewsConverter } from './news-converter';
 import { ListResult, getMinSizeArray } from './get-min-size-array';
+import { toNumberedUtcDate } from './extensions';
 
 const minPossibleDate = new Date(2016, 11, 1);
 const newsCount = 5;
@@ -42,7 +43,7 @@ export class NewsService {
 	}
 
 	private getData<T>(url: string, converter: (json: any) => T): Promise<T> {
-		return this.http.get(url)
+		return this.http.get(url + `?date=${new Date().valueOf()}`)
 			.toPromise()
 			.then(response => converter(response.json()))
 			.catch(handleError);
@@ -51,7 +52,7 @@ export class NewsService {
 
 function getDate(day: number, maxDate: Date) {
 	const date = new Date(maxDate.valueOf() - day * millisecondsInDay) as any;
-	return `${date.getUTCFullYear()}${(1+date.getUTCMonth()).to00()}${date.getUTCDate().to00()}`;
+	return toNumberedUtcDate(date);
 }
 
 function handleError(error: any): Promise<any> {

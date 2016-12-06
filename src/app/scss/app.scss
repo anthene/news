@@ -49,6 +49,14 @@
 
 .more-news {
 	background: $news-list-item-background;
-	margin: $indent;
+	margin: $indent / 2;
 	padding: $indent;
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: center;
+
+	&:after {
+		content: " >>"
+	}
 }
