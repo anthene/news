@@ -3,7 +3,7 @@
 		  class="news-list-item pointer"
 		  [class.first-news-list-item]="newsListItem === newsList[0]"
 		  (click)="router.navigate(['/news', newsListItem.id])">
-		<img class="image" src="{{newsListItem.image.data}}"/>
+		<img class="image" src="/data/images/{{newsListItem.id}}.jpg"/>
 		<div class="time">{{newsListItem.date.toLocaleString()}}</div>
 		<div class="header">{{newsListItem.header}}</div>
 	</div>

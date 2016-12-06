@@ -1,7 +1,6 @@
 export interface ImageInfo {
 	author: string;
 	owner: string;
-	data: string;
 }
 
 export interface NewsBase {

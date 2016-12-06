@@ -55,6 +55,7 @@ module.exports = {
         new CopyWebpackPlugin([
             //{ from: 'images', to: "images" },
             { from: "../data/*.json", to: 'data' },
+            { from: "../data/images/*.jpg", to: 'images' },
             { from: '**/*.html', to: "app" },
             { from: "../../node_modules/core-js/client/shim.min.js", to: "libs" },
             { from: "../../node_modules/zone.js/dist/zone.min.js", to: "libs" },
