@@ -2,6 +2,8 @@ $body-background: #ccc;
 
 $indent: 10px;
 
+$ver-scroll-width: 17px;
+
 $header-height: 58px;
 $menu-height: 39px;
 
@@ -14,8 +16,9 @@ $news-list-item-flex-basis: 260px; // todo: discover how to calculate
 
 $page-size-min: 320px;
 $page-size-xs: 480px;
-$page-size-m: 768px;
-$page-size-l: 1024px;
+$page-size-sm: 768px;
+$page-size-md: 1024px;
+$page-size-lg: 1380px;
 $page-size-max: 1920px;
 
 $side-column-width: $page-size-min - 2 * $indent;

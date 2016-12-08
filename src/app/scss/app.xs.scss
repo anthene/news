@@ -6,16 +6,17 @@
 	}
 
 	.content {
-		margin-top: $header-height + $menu-height;
+		margin-top: $header-height + $menu-height + $indent / 2;
+		margin-left: 0px;
+	}
 
-		.advertising {
-			display: none;
-		}
+	.advertising {
+		display: none;
 	}
 }
 
 @media screen and (min-width: $page-size-xs + 1) {
-	.short-news-list, .news-content {
+	.short-news-list, .content {
 		display: block;
 	}
 }

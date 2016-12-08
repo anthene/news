@@ -1,0 +1,14 @@
+@import "variables";
+
+@media screen and (min-width: $page-size-sm + 1) and (max-width: $page-size-md) {
+	.content {
+		.news-list {
+			.news-list-item {
+				width: calc(50% - 10px);
+			}
+			.first-news-list-item {
+				width: auto;
+			}
+		}
+	}
+}
