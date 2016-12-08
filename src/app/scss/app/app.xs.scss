@@ -5,9 +5,21 @@
 		display: flex;
 	}
 
+	.short-news-list-panel, .content {
+		width: calc(100% - 10px);
+	}
+
+	.short-news-list-panel {
+		top: $header-height + $menu-height + $indent / 2;
+		height: calc(100% - 58px - 39px);
+		.short-news-list {
+			width: calc(100% + 17px);
+		}
+	}
+
 	.content {
+		margin: $indent / 2;
 		margin-top: $header-height + $menu-height + $indent / 2;
-		margin-left: 0px;
 	}
 
 	.advertising {

@@ -1,7 +1,7 @@
 @import "variables";
 @import "helpers";
 @import "mixins";
-@import "news-list";
+@import "../news-list/news-list";
 @import "news";
 
 .page-header {
@@ -23,6 +23,28 @@
 
 .short-news-list-panel {
 	left: $indent / 2;
+
+	.short-news-list {
+		overflow: auto;
+		height: 100%;
+		width: $side-column-width + $indent + $ver-scroll-width;
+		font-size: small;
+
+		.short-news {
+			background: $news-list-item-background;
+			display: flex;
+			@include indents;
+			margin-bottom: $indent;
+
+			.time, .header {
+				margin: $indent / 2;
+			}
+
+			.time {
+				color: $light-font-color;
+			}
+		}
+	}
 }
 
 .advertising {
@@ -33,37 +55,14 @@
 	}
 }
 
-.short-news-list {
-	overflow: auto;
-	height: 100%;
-	width: $side-column-width + $indent + $ver-scroll-width;
-	font-size: small;
-
-	.short-news {
-		background: $news-list-item-background;
-		display: flex;
-		@include indents;
-		margin-bottom: $indent / 2;
-		margin-bottom: $indent;
-
-		.time, .header {
-			margin: $indent / 2;
-		}
-
-		.time {
-			color: $light-font-color;
-		}
-	}
-}
-
 .content {
 	margin: $header-height + $indent / 2 $side-column-width + 1.5 * $indent auto $side-column-width + 1.5 * $indent;
-	display: flex;
 }
 
 .more-news {
 	background: $news-list-item-background;
 	margin: $indent / 2;
+	margin-bottom: $indent;
 	padding: $indent;
 	cursor: pointer;
 	font-weight: bold;
