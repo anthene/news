@@ -4,7 +4,9 @@ $indent: 10px;
 
 $ver-scroll-width: 17px;
 
-$header-height: 58px;
+$logo-size: 48px;
+
+$header-height: $logo-size + 2 * $indent;
 $menu-height: 39px;
 
 $news-list-item-background: #fff;

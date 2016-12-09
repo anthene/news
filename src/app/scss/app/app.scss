@@ -6,17 +6,45 @@
 
 .page-header {
 	margin: 0;
-	padding: $indent;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	background: $news-list-item-background;
+
+	font-size: $logo-size;
+	line-height: $header-height;
+
+	.name {
+		margin-left: 2 * $indent + $logo-size;
+	}
+
+	.name, .last, .news, .motto {
+		display: inline-block;
+	}
+
+	.name {
+		.last, .news {
+			display: inline-block;
+		}
+
+		.last {
+			font-weight: bold;
+		}
+	}
+}
+
+.logo {
+	position: fixed;
+	top: $indent;
+	left: $indent;
+	width: $logo-size;
+	height: $logo-size;
 }
 
 .short-news-list-panel, .advertising {
 	top: $header-height + $indent / 2;
 	width: $side-column-width + $indent;
-	height: calc(100% - 58px);
+	height: calc(100% - 68px);
 	overflow: hidden;
 	position: fixed;
 }
@@ -35,6 +63,7 @@
 			display: flex;
 			@include indents;
 			margin-bottom: $indent;
+			width: $side-column-width - $indent;
 
 			.time, .header {
 				margin: $indent / 2;
