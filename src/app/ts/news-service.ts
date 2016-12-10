@@ -8,7 +8,7 @@ import { NewsConverter } from './news-converter';
 import { ListResult, getMinSizeArray } from './get-min-size-array';
 import { toNumberedUtcDate } from './extensions';
 
-const minPossibleDate = new Date(2016, 11, 1);
+const minPossibleDate = new Date(Date.UTC(2016, 11, 1));
 const newsCount = 5;
 const shortNewsCount = 15;
 

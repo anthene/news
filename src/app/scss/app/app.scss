@@ -1,6 +1,5 @@
 @import "variables";
 @import "helpers";
-@import "mixins";
 @import "../news-list/news-list";
 @import "news";
 
@@ -43,28 +42,28 @@
 }
 
 .short-news-list-panel, .advertising {
-	top: $header-height + $indent / 2;
-	width: $side-column-width + $indent;
-	height: calc(100% - 68px);
+	top: $header-height + $indent;
+	width: $side-column-width;
+	height: calc(100% - 68px - 2 * 10px);
 	overflow: hidden;
 	position: fixed;
 }
 
 .short-news-list-panel {
-	left: $indent / 2;
+	left: $indent;
 
 	.short-news-list {
 		overflow: auto;
 		height: 100%;
-		width: $side-column-width + $indent + $ver-scroll-width;
+		width: calc(100% + 17px);
 		font-size: small;
 
 		.short-news {
 			background: $news-list-item-background;
 			display: flex;
-			@include indents;
+			padding: $indent / 2;
 			margin-bottom: $indent;
-			width: $side-column-width - $indent;
+			width: calc(100% - 10px);
 
 			.time, .header {
 				margin: $indent / 2;
@@ -78,21 +77,18 @@
 }
 
 .advertising {
-	right: $indent / 2;
+	right: $indent;
 	a {
-		margin: $indent / 2;
 		display: block;
 	}
 }
 
 .content {
-	margin: $header-height + $indent / 2 $side-column-width + 1.5 * $indent auto $side-column-width + 1.5 * $indent;
+	margin: $header-height + $indent $side-column-width + 2 * $indent $indent $side-column-width + 2 * $indent;
 }
 
 .more-news {
 	background: $news-list-item-background;
-	margin: $indent / 2;
-	margin-bottom: $indent;
 	padding: $indent;
 	cursor: pointer;
 	font-weight: bold;
@@ -104,6 +100,7 @@
 	}
 }
 
+@import "app.xs.sm.md";
 @import "app.xs";
 @import "app.sm";
 @import "app.md";

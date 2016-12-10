@@ -4,7 +4,11 @@
 	.content {
 		.news-list {
 			.news-list-item {
-				width: calc(33% - 10px);
+				width: calc((100% - 10px) / 2);
+				margin-right: $indent; 
+			}
+			.news-list-item:nth-child(2n+1) {
+				margin-right: 0; 
 			}
 		}
 	}

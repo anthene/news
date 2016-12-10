@@ -1,11 +1,9 @@
 @import "variables";
 
 @media screen and (min-width: $page-size-xs + 1) and (max-width: $page-size-sm) {
-	.content {
-		margin-right: $indent / 2;
-	}
-
-	.advertising {
-		display: none;
+	.page-header {
+		.name {
+			display: none;
+		}
 	}
 }

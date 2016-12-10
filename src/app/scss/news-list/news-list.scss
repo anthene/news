@@ -3,8 +3,9 @@
 .news-list {
 	.news-list-item {
 		display: inline-block;
+		vertical-align: top;
 		background: $news-list-item-background;
-		margin: $indent / 2;
+		margin-bottom: $indent;
 		width: auto;
 
 		.image {
@@ -14,6 +15,11 @@
 		.time {
 			color: $light-font-color;
 			margin: $indent 0;
+		}
+
+		.header {
+			height: $news-list-item-header-height;
+			overflow: hidden;
 		}
 	}
 }

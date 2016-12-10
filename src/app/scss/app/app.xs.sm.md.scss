@@ -1,0 +1,11 @@
+@import "variables";
+
+@media screen and (max-width: $page-size-md) {
+	.content {
+		margin-right: $indent;
+	}
+
+	.advertising {
+		display: none;
+	}
+}

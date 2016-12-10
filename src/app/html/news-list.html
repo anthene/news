@@ -5,7 +5,7 @@
 		  (click)="router.navigate(['/news', newsListItem.id])">
 		<img class="image" src="/data/images/{{newsListItem.id}}.jpg"/>
 		<div class="time">{{newsListItem.date.toLocaleString()}}</div>
-		<div class="header">{{newsListItem.header}}</div>
+		<div class="header"><p>{{newsListItem.header}}</p></div>
 	</div>
 </div>
 <div class="more-news" (click)="getMoreNews()">
