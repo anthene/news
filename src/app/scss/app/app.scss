@@ -41,16 +41,16 @@
 	height: $logo-size;
 }
 
-.short-news-list-panel, .advertising {
+.short-news-list-panel, .advertising-panel {
 	top: $header-height + $indent;
-	width: $side-column-width;
-	height: calc(100% - 68px - 2 * 10px);
 	overflow: hidden;
 	position: fixed;
 }
 
 .short-news-list-panel {
 	left: $indent;
+	width: $side-column-width;
+	height: calc(100% - 68px - 2 * 10px);
 
 	.short-news-list {
 		overflow: auto;
@@ -76,10 +76,20 @@
 	}
 }
 
-.advertising {
-	right: $indent;
-	a {
-		display: block;
+.advertising-panel {
+	right: 0;
+	width: $side-column-width + $indent;
+	height: calc(100% - 68px - 10px);
+
+	.advertising {
+		overflow: auto;
+		height: 100%;
+		width: $side-column-width + $indent + $ver-scroll-width;
+
+		a {
+			display: block;
+			margin-bottom: $indent;
+		}
 	}
 }
 
