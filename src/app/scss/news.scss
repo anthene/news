@@ -2,6 +2,7 @@
 
 	.news {
 		background: $news-list-item-background;
+		@include box-shadow;
 
 		.image {
 			width: 100%;

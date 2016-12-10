@@ -1,4 +1,5 @@
 $body-background: #ccc;
+$shadow-color: #777;
 
 $indent: 10px;
 
@@ -30,3 +31,7 @@ $side-column-width: $page-size-min - 2 * $indent;
 $light-font-color: #999;
 $menu-item-color: #eee;
 $active-menu-item-color: $body-background;
+
+@mixin box-shadow {
+	box-shadow: $indent $indent $indent $shadow-color;
+}

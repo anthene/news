@@ -3,6 +3,10 @@
 @import "../news-list/news-list";
 @import "news";
 
+.page-header, .short-news-list-panel .short-news-list .short-news, .advertising a, .more-news {
+	@include box-shadow;
+}
+
 .page-header {
 	margin: 0;
 	position: fixed;
@@ -43,14 +47,14 @@
 
 .short-news-list-panel, .advertising-panel {
 	top: $header-height + $indent;
+	width: $side-column-width + $indent;
 	overflow: hidden;
 	position: fixed;
 }
 
 .short-news-list-panel {
 	left: $indent;
-	width: $side-column-width;
-	height: calc(100% - 68px - 2 * 10px);
+	height: calc(100% - 68px - 10px);
 
 	.short-news-list {
 		overflow: auto;
@@ -59,11 +63,11 @@
 		font-size: small;
 
 		.short-news {
+			width: calc(100% - 2 * 10px);
 			background: $news-list-item-background;
 			display: flex;
 			padding: $indent / 2;
 			margin-bottom: $indent;
-			width: calc(100% - 10px);
 
 			.time, .header {
 				margin: $indent / 2;
@@ -73,12 +77,16 @@
 				color: $light-font-color;
 			}
 		}
+
+		.more-news {
+			width: calc(100% - 3 * 10px);
+			margin-bottom: 10px;
+		}
 	}
 }
 
 .advertising-panel {
 	right: 0;
-	width: $side-column-width + $indent;
 	height: calc(100% - 68px - 10px);
 
 	.advertising {
@@ -89,6 +97,7 @@
 		a {
 			display: block;
 			margin-bottom: $indent;
+			width: $side-column-width;
 		}
 	}
 }
