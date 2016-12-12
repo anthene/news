@@ -111,12 +111,7 @@
 	padding: $indent;
 	cursor: pointer;
 	font-weight: bold;
-	text-decoration: underline;
 	text-align: center;
-
-	&:after {
-		content: " >>"
-	}
 }
 
 @import "app.xs.sm.md";

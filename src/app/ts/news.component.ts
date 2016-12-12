@@ -15,7 +15,7 @@ export class NewsComponent implements OnInit {
 
 	constructor(
 		private route: ActivatedRoute,
-		private router: Router,
+		public router: Router, // todo: make private
 		private newsService: NewsService
 	) {
 	}

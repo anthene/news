@@ -12,7 +12,7 @@ $menu-height: 39px;
 
 $news-list-item-header-height: 60px;
 
-$news-list-item-background: #fff;
+$news-list-item-background: linear-gradient(to bottom right, #fff, #ddd);
 
 $news-list-item-bottom-border-width: 1px;
 $news-list-item-bottom-border-color: #aaa;
@@ -33,5 +33,5 @@ $menu-item-color: #eee;
 $active-menu-item-color: $body-background;
 
 @mixin box-shadow {
-	box-shadow: $indent $indent $indent $shadow-color;
+	box-shadow: $indent / 2 $indent / 2 $indent / 2 $shadow-color;
 }

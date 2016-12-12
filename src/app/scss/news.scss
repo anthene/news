@@ -1,8 +1,11 @@
 .content {
 
+	.news, .to-list {
+		@include box-shadow;
+	}
+
 	.news {
 		background: $news-list-item-background;
-		@include box-shadow;
 
 		.image {
 			width: 100%;
@@ -23,5 +26,14 @@
 				text-align: justify;
 			}
 		}
+	}
+
+	.to-list {
+		margin-bottom: $indent;
+		background: $news-list-item-background;
+		padding: $indent;
+		cursor: pointer;
+		font-weight: bold;
+		text-align: center;
 	}
 }

@@ -1,3 +1,6 @@
+<div class="to-list" (click)="router.navigate(['/newslist'])">
+	&#x25C4; К списку
+</div>
 <div class="news" *ngIf="news">
 	<img class="image" src="/data/images/{{news.id}}.jpg"/>
 	<div class="time">{{news.date.toLocaleString()}}</div>
@@ -6,4 +9,6 @@
 		<p *ngFor="let contentItem of news.content">{{contentItem}}</p>
 	</div>
 </div>
-
+<div class="to-list" (click)="router.navigate(['/newslist'])">
+	&#x25C4; К списку
+</div>
