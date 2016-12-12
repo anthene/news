@@ -1,0 +1,8 @@
+@import "variables";
+
+.content {
+	.about {
+		background: $news-list-item-background;
+		@include box-shadow;
+	}
+}

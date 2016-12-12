@@ -2,6 +2,7 @@
 @import "helpers";
 @import "../news-list/news-list";
 @import "news";
+@import "about";
 
 .page-header, .short-news-list-panel .short-news-list .short-news, .advertising a, .more-news {
 	@include box-shadow;
@@ -43,6 +44,14 @@
 	left: $indent;
 	width: $logo-size;
 	height: $logo-size;
+}
+
+.about-link {
+	position: fixed;
+	top: $indent;
+	right: $indent;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 .short-news-list-panel, .advertising-panel {
