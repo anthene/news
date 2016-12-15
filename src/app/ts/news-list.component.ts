@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { NewsListItem } from './news';
 import { NewsService } from './news-service';
@@ -15,7 +14,6 @@ export class NewsListComponent implements OnInit {
 	lastDate = new Date();
 
 	constructor(
-		public router: Router, // todo: make private
 		private newsService: NewsService
 		) {
 	}

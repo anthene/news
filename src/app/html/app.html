@@ -1,17 +1,17 @@
-<div class="page-header pointer" (click)="router.navigate(['/newslist'])">
+<a class="page-header pointer" routerLink="/newslist">
 	<div class="name">
 		<span class="last">ПОСЛЕДНИЕ</span><span class="news">НОВОСТИ</span>
 	</div>
 	<!--<div class="motto">БУДЬ В КУРСЕ</div>-->
-</div>
+</a>
 
 <div class="logo">
 	<img src="/logo.svg" width="100%" height="100%"/>
 </div>
 
-<div class="about-link pointer" (click)="router.navigate(['/about'])">
+<a class="about-link pointer" routerLink="/about">
 	О портале
-</div>
+</a>
 
 <div class="menu hidden">
 	<div class="menu-item pointer" (click)="currentMenuItem = 0" [class.active-menu-item]="currentMenuItem === 0">

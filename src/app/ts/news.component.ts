@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { News } from './news';
 import { NewsService } from './news-service';
@@ -15,7 +15,6 @@ export class NewsComponent implements OnInit {
 
 	constructor(
 		private route: ActivatedRoute,
-		public router: Router, // todo: make private
 		private newsService: NewsService
 	) {
 	}

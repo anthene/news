@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { ShortNews } from './news';
 import { NewsService } from './news-service';
@@ -19,7 +18,6 @@ export class AppComponent implements OnInit {
 	currentMenuItem = MenuItem.News;
 
 	constructor(
-		public router: Router, // todo: make private
 		private newsService: NewsService
 		) {
 	}

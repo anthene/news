@@ -1,5 +1,6 @@
 $body-background: #ccc;
 $shadow-color: #777;
+$link-color: #000;
 
 $indent: 10px;
 
@@ -33,5 +34,5 @@ $menu-item-color: #eee;
 $active-menu-item-color: $body-background;
 
 @mixin box-shadow {
-	box-shadow: $indent / 2 $indent / 2 $indent / 2 $shadow-color;
+	box-shadow: $indent / 4 $indent / 4 $indent / 4 $shadow-color;
 }

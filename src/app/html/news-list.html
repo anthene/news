@@ -1,12 +1,12 @@
 <div class="news-list">
-	<div *ngFor="let newsListItem of newsList"
+	<a *ngFor="let newsListItem of newsList"
 		  class="news-list-item pointer"
 		  [class.first-news-list-item]="newsListItem === newsList[0]"
-		  (click)="router.navigate(['/news', newsListItem.id])">
+		  [routerLink]="['/news', newsListItem.id]">
 		<img class="image" src="/data/images/{{newsListItem.id}}.jpg"/>
 		<div class="time">{{newsListItem.date.toLocaleString()}}</div>
 		<div class="header"><p>{{newsListItem.header}}</p></div>
-	</div>
+	</a>
 </div>
 <div class="more-news" (click)="getMoreNews()">
 	Еще новости &#x25BA;

@@ -8,3 +8,8 @@ body {
 	font-family: 'Roboto', sans-serif;
 	box-sizing: border-box;
 }
+
+a, a:visited {
+	color: $link-color;
+	text-decoration: none;
+}
