@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-//import { DashboardComponent } from './dashboard.component';
 import { NewsListComponent } from './news-list.component';
 import { NewsComponent } from './news.component';
 import { AboutComponent } from './about.component';

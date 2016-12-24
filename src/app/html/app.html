@@ -25,7 +25,7 @@
 <div class="short-news-list-panel">
 	<div class="short-news-list" [class.hidden]="currentMenuItem !== 0">
 		<div *ngFor="let shortNews of shortNewsList" class="short-news">
-			<div class="time">{{toTime(shortNews.date)}}</div>
+			<div class="time">{{shortNews.date | customTime}}</div>
 			<div class="header">{{shortNews.header}}</div>
 		</div>
 		<div class="more-news" (click)="getMoreNews()">

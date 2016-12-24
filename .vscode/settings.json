@@ -4,7 +4,7 @@
 		"**/*.gitignore": true,
 		"bin": true,
 		"node_modules": true,
-		"app/**/*.js.map": true,
-		"app/**/*.js": true
+		"src/**/*.js.map": true,
+		"src/**/*.js": true
 	}
 }

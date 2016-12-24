@@ -9,6 +9,7 @@ import { NewsComponent } from './news.component';
 import { AboutComponent } from './about.component';
 import { NewsService } from './news-service';
 import { NewsConverter } from './news-converter';
+import { CustomTimePipe } from './custom-time.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,7 +19,10 @@ import { AppRoutingModule } from './app-routing.module';
 		HttpModule,
 		AppRoutingModule
 	],
-	declarations: [ AppComponent, NewsListComponent, NewsComponent, AboutComponent ],
+	declarations: [
+		AppComponent, NewsListComponent, NewsComponent, AboutComponent,
+		CustomTimePipe
+	],
 	providers: [ NewsService, NewsConverter ],
 	bootstrap: [ AppComponent ]
 })
