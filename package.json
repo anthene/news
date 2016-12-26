@@ -2,11 +2,8 @@
   "name": "news",
   "version": "0.1.0",
   "scripts": {
-    "start": "webpack && lite-server",
-    "wp": "webpack",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "prestart": "webpack",
+    "start": "lite-server"
   },
   "licenses": [
     {

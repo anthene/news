@@ -4,13 +4,14 @@
 @import "news";
 @import "about";
 
-.page-header, .short-news-list-panel .short-news-list .short-news, .advertising a, .more-news {
+.page-header, .menu, .short-news-list-panel .short-news-list .short-news, .advertising a, .more-news {
 	@include box-shadow;
 }
 
 .page-header {
 	margin: 0;
 	position: fixed;
+	z-index: 2;
 	top: 0;
 	width: 100%;
 	background: $news-list-item-background;
@@ -40,6 +41,7 @@
 
 .logo {
 	position: fixed;
+	z-index: 3;
 	top: $indent;
 	left: $indent;
 	width: $logo-size;
@@ -48,22 +50,40 @@
 
 .about-link {
 	position: fixed;
+	z-index: 3;
 	top: $indent;
 	right: $indent;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
+.short-news-list-panel, .short-news-list-panel .wait-indicator-panel, .advertising-panel {
+	top: $header-height;
+	position: fixed;
+	z-index: 1;
+	height: calc(100% - 68px);
+}
+
 .short-news-list-panel, .advertising-panel {
-	top: $header-height + $indent;
 	width: $side-column-width + $indent;
 	overflow: hidden;
-	position: fixed;
+}
+
+.short-news-list-panel {
+	.wait-indicator-panel {
+		width: $side-column-width + 2 * $indent;
+		left: 0;
+
+		.sk-cube-grid {
+			position: fixed;
+			top: calc(100% / 2 + 40px / 2); // todo: why '+'
+			left: calc(320px / 2 - 40px / 2)
+		}
+	}
 }
 
 .short-news-list-panel {
 	left: $indent;
-	height: calc(100% - 68px - 10px);
 
 	.short-news-list {
 		overflow: auto;
@@ -76,7 +96,7 @@
 			background: $news-list-item-background;
 			display: flex;
 			padding: $indent / 2;
-			margin-bottom: $indent;
+			margin-top: $indent;
 
 			.time, .header {
 				margin: $indent / 2;
@@ -89,6 +109,7 @@
 
 		.more-news {
 			width: calc(100% - 3 * 10px);
+			margin-top: 10px;
 			margin-bottom: 10px;
 		}
 	}
@@ -96,7 +117,6 @@
 
 .advertising-panel {
 	right: 0;
-	height: calc(100% - 68px - 10px);
 
 	.advertising {
 		overflow: auto;
@@ -105,6 +125,7 @@
 
 		a {
 			display: block;
+			margin-top: $indent;
 			margin-bottom: $indent;
 			width: $side-column-width;
 		}

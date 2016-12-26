@@ -13,6 +13,7 @@ const millisecondsInDay = 24 * 60 * 60 * 1000;
 })
 export class AppComponent implements OnInit {
 	shortNewsList: ShortNews[] = [];
+	shortNewsListLoadInProgress = false;
 	lastDate = new Date();
 	currentMenuItem = MenuItem.News;
 
@@ -30,10 +31,12 @@ export class AppComponent implements OnInit {
 	}
 
 	private getData(maxDate: Date): void {
+		this.shortNewsListLoadInProgress = true
 		this.newsService.getShortNews(maxDate)
 		.then((shortNewsListResult: ListResult<ShortNews>) => {
 				this.shortNewsList = this.shortNewsList.concat(shortNewsListResult.list);
 				this.lastDate = shortNewsListResult.minDate;
+				this.shortNewsListLoadInProgress = false
 			});
 	}
 }
