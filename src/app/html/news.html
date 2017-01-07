@@ -1,7 +1,7 @@
 <a class="to-list" routerLink="/newslist">
-	&#x25C4; К списку
+	К списку
 </a>
-<div class="news" *ngIf="news">
+<div class="news tile" *ngIf="news">
 	<img class="image" src="/data/images/{{news.id}}.jpg"/>
 	<div class="time">{{news.date.toLocaleString()}}</div>
 	<div class="header">{{news.header}}</div>
@@ -10,5 +10,5 @@
 	</div>
 </div>
 <a class="to-list" routerLink="/newslist">
-	&#x25C4; К списку
+	К списку
 </a>

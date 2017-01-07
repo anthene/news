@@ -19,15 +19,15 @@ export class NewsListComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.getData(new Date());
+		this.getData(new Date(), 7);
 	}
 
 	getMoreNews(): void {
 		this.getData(new Date(this.lastDate.valueOf()));
 	}
 
-	private getData(maxDate: Date): void {
-		this.newsService.getNewsList(maxDate)
+	private getData(maxDate: Date, newsCount = 6): void {
+		this.newsService.getNewsList(maxDate, newsCount)
 		.then((newsListResult: ListResult<NewsListItem>) => {
 				this.newsList = this.newsList.concat(newsListResult.list);
 				this.lastDate = newsListResult.minDate;

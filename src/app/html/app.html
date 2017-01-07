@@ -1,4 +1,4 @@
-<a class="page-header pointer" routerLink="/newslist">
+<a class="page-header tile" routerLink="/newslist">
 	<div class="name">
 		<span class="last">ПОСЛЕДНИЕ</span><span class="news">НОВОСТИ</span>
 	</div>
@@ -9,11 +9,11 @@
 	<img src="/logo.svg" width="100%" height="100%"/>
 </div>
 
-<a class="about-link pointer" routerLink="/about">
+<a class="about-link" routerLink="/about">
 	О портале
 </a>
 
-<div class="menu hidden">
+<div class="menu tile hidden">
 	<div class="menu-item pointer" (click)="currentMenuItem = 0" [class.active-menu-item]="currentMenuItem === 0">
 		Одной строкой
 	</div>
@@ -37,12 +37,12 @@
 		</div>
 	</div>
 	<div class="short-news-list">
-		<div *ngFor="let shortNews of shortNewsList" class="short-news">
+		<div *ngFor="let shortNews of shortNewsList" class="short-news tile">
 			<div class="time">{{shortNews.date | customTime}}</div>
 			<div class="header">{{shortNews.header}}</div>
 		</div>
 		<div class="more-news" (click)="getMoreNews()" [hidden]="shortNewsListLoadInProgress">
-			Еще новости &#x25BA;
+			Еще новости
 		</div>
 	</div>
 </div>
@@ -54,7 +54,7 @@
 <div class="advertising-panel">
 	<div class="advertising">
 		<a href="http://www.rusfond.ru/" title="Русфонд" target="_blank">
-			<IMG src="http://www.rusfond.ru/pics/ipict/300x600.jpg" width="300" height="600" hspace="0" vspace="0" border="0" alt="Русфонд">
+			<img class="grayscale-image" src="http://www.rusfond.ru/pics/ipict/300x600.jpg" width="300" height="600" hspace="0" vspace="0" border="0" alt="Русфонд">
 		</a>
 	</div>
 </div>

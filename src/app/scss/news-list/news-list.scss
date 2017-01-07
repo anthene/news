@@ -4,7 +4,6 @@
 	.news-list-item {
 		display: inline-block;
 		vertical-align: top;
-		background: $news-list-item-background;
 		margin-bottom: $indent;
 		width: auto;
 		@include box-shadow;

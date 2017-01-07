@@ -5,8 +5,6 @@
 	}
 
 	.news {
-		background: $news-list-item-background;
-
 		.image {
 			width: 100%;
 		}
@@ -30,11 +28,15 @@
 
 	.to-list {
 		margin-bottom: $indent;
-		background: $news-list-item-background;
+		background: $theme-color;
 		padding: $indent;
 		cursor: pointer;
 		font-weight: bold;
 		text-align: center;
 		display: block;
+	}
+
+	.to-list:hover {
+		text-decoration: underline;
 	}
 }

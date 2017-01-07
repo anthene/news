@@ -1,12 +1,16 @@
-$body-background: #ccc;
+$theme-color: #2196f3;
+$body-background: #333;
 $shadow-color: #777;
 $link-color: #000;
+$tile-background: linear-gradient(to bottom right, #222, #111);
+$tile-text-color: #ddd;
 
 $indent: 10px;
 
 $ver-scroll-width: 17px;
 
 $logo-size: 48px;
+$logo-shadow-color: #fff;
 
 $header-height: $logo-size + 2 * $indent;
 $menu-height: 39px;
@@ -34,5 +38,5 @@ $menu-item-color: #eee;
 $active-menu-item-color: $body-background;
 
 @mixin box-shadow {
-	box-shadow: $indent / 4 $indent / 4 $indent / 4 $shadow-color;
+	//box-shadow: $indent / 4 $indent / 4 $indent / 4 $shadow-color;
 }

@@ -46,6 +46,10 @@
 	left: $indent;
 	width: $logo-size;
 	height: $logo-size;
+	
+	img {
+		box-shadow: 0 0 $indent 0 $logo-shadow-color;
+	}
 }
 
 .about-link {
@@ -89,28 +93,26 @@
 		overflow: auto;
 		height: 100%;
 		width: calc(100% + 17px);
-		font-size: small;
 
 		.short-news {
-			width: calc(100% - 2 * 10px);
-			background: $news-list-item-background;
+			width: $side-column-width;
 			display: flex;
-			padding: $indent / 2;
 			margin-top: $indent;
 
 			.time, .header {
-				margin: $indent / 2;
+				margin: $indent;
 			}
 
 			.time {
 				color: $light-font-color;
+				margin-right: 0;
 			}
 		}
 
 		.more-news {
-			width: calc(100% - 3 * 10px);
-			margin-top: 10px;
-			margin-bottom: 10px;
+			width: $side-column-width;
+			margin-top: $indent;
+			margin-bottom: $indent;
 		}
 	}
 }
@@ -137,11 +139,15 @@
 }
 
 .more-news {
-	background: $news-list-item-background;
-	padding: $indent;
+	background: $theme-color;
+	padding: $indent 0;
 	cursor: pointer;
 	font-weight: bold;
 	text-align: center;
+}
+
+.more-news:hover {
+	text-decoration: underline;
 }
 
 @import "app.xs.sm.md";

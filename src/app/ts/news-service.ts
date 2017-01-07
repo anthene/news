@@ -9,7 +9,6 @@ import { ListResult, getMinSizeArray } from './get-min-size-array';
 import { toNumberedUtcDate } from './extensions';
 
 const minPossibleDate = new Date(Date.UTC(2016, 11, 1));
-const newsCount = 5;
 const shortNewsCount = 15;
 
 const millisecondsInDay = 24 * 60 * 60 * 1000;
@@ -30,7 +29,7 @@ export class NewsService {
 			minDate);
 	}
 
-	getNewsList(maxDate = new Date(), minDate = minPossibleDate): Promise<ListResult<NewsListItem>> {
+	getNewsList(maxDate: Date, newsCount: number, minDate = minPossibleDate): Promise<ListResult<NewsListItem>> {
 		return getMinSizeArray(
 			newsCount,
 			day => this.getData(`${dataPath}/news-list-${getDate(day, maxDate)}.json`, this.newsConverter.newsListFromJson),

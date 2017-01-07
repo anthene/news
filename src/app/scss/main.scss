@@ -5,12 +5,27 @@
 
 body {
 	margin: 0;
+	color: $tile-text-color;
 	background: $body-background;
 	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 	box-sizing: border-box;
 }
 
 a, a:visited {
-	color: $link-color;
+	color: $tile-text-color;
 	text-decoration: none;
+}
+
+.tile {
+	background: $tile-background;
+}
+
+.grayscale-image {
+	//filter: grayscale(100%);
+	//transition: filter .25s ease-in-out;
+
+	// &:hover {
+	// 	filter: none;
+	// }
 }

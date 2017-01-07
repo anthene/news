@@ -13,6 +13,8 @@
 	}
 
 	.short-news-list-panel {
+		width: calc(100% - 10px);
+
 		.wait-indicator-panel {
 			width: 100%;
 
@@ -20,14 +22,12 @@
 				left: calc(50% - 40px / 2)
 			}
 		}
-	}
 
-	.short-news-list-panel {
-		width: calc(100% - 10px);
-	}
-
-	.content {
-		width: calc(100% - 2 * 10px);
+		.short-news-list {
+			.short-news, .more-news {
+				width: calc(100vw - 2 * 10px);
+			}
+		}
 	}
 
 	.short-news-list-panel, .short-news-list-panel .wait-indicator-panel {
@@ -36,6 +36,7 @@
 	}
 
 	.content {
+		width: calc(100% - 2 * 10px);
 		margin-top: $header-height + $menu-height + $indent;
 		margin-left: $indent;
 	}

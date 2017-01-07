@@ -5,11 +5,10 @@
 	z-index: 2;
 	width: 100%;
 	top: $header-height;
-	background: $news-list-item-background;
 	justify-content: center;
 	
 	.menu-item {
-		background: $menu-item-color;
+		background: #2196f3;
 		margin: 0 $indent / 2;
 		padding: $indent 2 * $indent;
 	}
