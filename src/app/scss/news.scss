@@ -11,7 +11,7 @@
 		
 		.time {
 			margin: $indent 0;
-			color: $light-font-color;
+			color: $theme-color;
 		}
 		
 		.header {
@@ -31,7 +31,6 @@
 		background: $theme-color;
 		padding: $indent;
 		cursor: pointer;
-		font-weight: bold;
 		text-align: center;
 		display: block;
 	}

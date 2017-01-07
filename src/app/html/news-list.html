@@ -3,7 +3,9 @@
 		class="news-list-item tile"
 		[class.first-news-list-item]="newsListItem === newsList[0]"
 		[routerLink]="['/news', newsListItem.id]">
-		<img class="image grayscale-image" src="/data/images/{{newsListItem.id}}.jpg"/>
+		<div class="image-container">
+			<img class="image" src="/data/images/{{newsListItem.id}}.jpg"/>
+		</div>
 		<div class="time">{{newsListItem.date.toLocaleString()}}</div>
 		<div class="header"><p>{{newsListItem.header}}</p></div>
 	</a>

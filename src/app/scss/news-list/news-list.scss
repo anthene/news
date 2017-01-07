@@ -7,13 +7,25 @@
 		margin-bottom: $indent;
 		width: auto;
 		@include box-shadow;
+		border-bottom: $indent / 2 $theme-color solid;
 
-		.image {
-			width: 100%;
+		.image-container {
+			overflow: hidden;
+			
+			.image {
+				width: 100%;
+				filter: grayscale(75%);
+
+				&:hover {
+					transform: scale(1.1, 1.1);
+					filter: none;
+					transition: transform 2s ease-in-out, filter 2s ease-in-out;
+				}
+			}
 		}
 
 		.time {
-			color: $light-font-color;
+			color: $theme-color;
 			margin: $indent 0;
 		}
 

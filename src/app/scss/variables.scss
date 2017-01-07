@@ -13,6 +13,7 @@ $logo-size: 48px;
 $logo-shadow-color: #fff;
 
 $header-height: $logo-size + 2 * $indent;
+$header-caption-color: #fff;
 $menu-height: 39px;
 
 $news-list-item-header-height: 60px;
@@ -21,7 +22,6 @@ $news-list-item-background: linear-gradient(to bottom right, #fff, #ddd);
 
 $news-list-item-bottom-border-width: 1px;
 $news-list-item-bottom-border-color: #aaa;
-$news-list-item-bottom-padding: 10px;
 $news-list-item-flex-basis: 260px; // todo: discover how to calculate
 
 $page-size-min: 320px;

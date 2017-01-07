@@ -3,6 +3,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var autoprefixer = require('autoprefixer')({ browsers: ['last 4 versions'] });
+
 var path = require('path');
 
 var output = "./bin";
@@ -59,6 +61,8 @@ module.exports = {
             { from: '**/*.html', to: "app" },
             { from: '../logo.svg' },
             { from: '../favicon.ico' },
+            { from: '../bfkh.jpg' },
+            { from: '../rusfond.jpg' },
             { from: "../../node_modules/core-js/client/shim.min.js", to: "libs" },
             { from: "../../node_modules/zone.js/dist/zone.min.js", to: "libs" },
             { from: "../../node_modules/reflect-metadata/Reflect.js", to: "libs" }
@@ -67,5 +71,11 @@ module.exports = {
             template: '../index.html',
             chunksSortMode: 'dependency'
         })
-	]
+	],
+
+    postcss: function () {
+        return {
+            defaults: [autoprefixer]
+        };
+    }
 }

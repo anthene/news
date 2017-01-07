@@ -24,7 +24,11 @@
 		}
 
 		.short-news-list {
-			.short-news, .more-news {
+			.short-news {
+				width: calc(100vw - 2 * 10px - 10px / 2);
+			}
+
+			.more-news {
 				width: calc(100vw - 2 * 10px);
 			}
 		}

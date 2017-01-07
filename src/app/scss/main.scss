@@ -22,10 +22,10 @@ a, a:visited {
 }
 
 .grayscale-image {
-	//filter: grayscale(100%);
-	//transition: filter .25s ease-in-out;
+	filter: grayscale(75%);
 
-	// &:hover {
-	// 	filter: none;
-	// }
+	&:hover {
+		filter: none;
+		transition: filter .5s ease-in-out;
+	}
 }
