@@ -9,19 +9,8 @@
 		@include box-shadow;
 		border-bottom: $indent / 2 $theme-color solid;
 
-		.image-container {
-			overflow: hidden;
-			
-			.image {
-				width: 100%;
-				filter: grayscale(75%);
-
-				&:hover {
-					transform: scale(1.1, 1.1);
-					filter: none;
-					transition: transform 2s ease-in-out, filter 2s ease-in-out;
-				}
-			}
+		.image {
+			width: 100%;
 		}
 
 		.time {
