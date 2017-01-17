@@ -41,7 +41,7 @@
 			<div class="time">{{shortNews.date | customTime}}</div>
 			<div class="header">{{shortNews.header}}</div>
 		</div>
-		<div class="more-news" (click)="getMoreNews()" [hidden]="shortNewsListLoadInProgress">
+		<div class="more-news" (click)="getMoreNews()" [hidden]="!initialLoadCompleted">
 			Еще новости
 		</div>
 	</div>

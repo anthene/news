@@ -10,17 +10,21 @@
 		}
 		
 		.time {
-			margin: $indent 0;
+			margin: $indent;
 			color: $theme-color;
 		}
 		
 		.header {
+			margin: $indent;
+			margin-top: 0;
 			font-weight: bold;
 			font-size: x-large;
 		}
 		
 		.text {
 			p {
+				margin: $indent;
+				margin-top: 0;
 				text-align: justify;
 			}
 		}

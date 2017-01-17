@@ -12,6 +12,10 @@ body {
 	box-sizing: border-box;
 }
 
+p {
+	margin: 0;
+}
+
 a, a:visited {
 	color: $tile-text-color;
 	text-decoration: none;

@@ -10,27 +10,41 @@ import { ListResult } from './get-min-size-array';
 	templateUrl: 'app/html/news-list.html'
 })
 export class NewsListComponent implements OnInit {
-	newsList: NewsListItem[] = [];
+	private newsList: NewsListItem[] = [];
+	newsListLoadInProgress = false;
+	initialLoadCompleted = false;
 	lastDate = new Date();
+	portionsCount = 0;
 
 	constructor(
 		private newsService: NewsService
 		) {
 	}
 
-	ngOnInit(): void {
+	ngOnInit() {
 		this.getData(new Date(), 7);
 	}
 
-	getMoreNews(): void {
-		this.getData(new Date(this.lastDate.valueOf()));
+	getMoreNews() {
+		if (!this.newsListLoadInProgress)
+			this.getData(new Date(this.lastDate.valueOf()));
 	}
 
-	private getData(maxDate: Date, newsCount = 6): void {
+	getNewsList() {
+		return this.newsList.slice(0, 6 * this.portionsCount + 1);
+	}
+
+	private getData(maxDate: Date, newsCount = 6) {
+		const loadStart = new Date().valueOf();
+		this.newsListLoadInProgress = true;
 		this.newsService.getNewsList(maxDate, newsCount)
-		.then((newsListResult: ListResult<NewsListItem>) => {
-				this.newsList = this.newsList.concat(newsListResult.list);
-				this.lastDate = newsListResult.minDate;
-			});
+			.then((newsListResult: ListResult<NewsListItem>) => {
+					this.newsList = this.newsList.concat(newsListResult.list);
+					this.portionsCount++;
+					this.lastDate = newsListResult.minDate;
+					while (new Date().valueOf() < loadStart + 1000) { }
+					this.newsListLoadInProgress = false;
+					this.initialLoadCompleted = true;
+				});
 	}
 }

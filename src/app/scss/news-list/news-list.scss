@@ -1,26 +1,46 @@
 @import "variables";
 
-.news-list {
-	.news-list-item {
-		display: inline-block;
-		vertical-align: top;
-		margin-bottom: $indent;
+.content {
+	.wait-indicator-panel {
+		position: fixed;
 		width: auto;
-		@include box-shadow;
-		border-bottom: $indent / 2 $theme-color solid;
+		height: calc(100% - 68px);
+		top: $header-height;
+		z-index: 3;
 
-		.image {
-			width: 100%;
+		.sk-cube-grid {
+			position: fixed;
+			top: calc(100% / 2 + 40px / 2); // todo: why '+'
+			left: calc(100% / 2 - 40px / 2);
 		}
+	}
 
-		.time {
-			color: $theme-color;
-			margin: $indent 0;
-		}
+	.news-list {
+		.news-list-item {
+			display: inline-block;
+			vertical-align: top;
+			margin-bottom: $indent;
+			width: auto;
+			@include box-shadow;
+			border-bottom: $indent / 2 $theme-color solid;
 
-		.header {
-			height: $news-list-item-header-height;
-			overflow: hidden;
+			.image {
+				width: 100%;
+			}
+
+			.time {
+				color: $theme-color;
+				margin: $indent 0;
+			}
+
+			.header {
+				height: $news-list-item-header-height;
+				overflow: hidden;
+
+				p {
+					margin: $indent;
+				}
+			}
 		}
 	}
 }
@@ -28,4 +48,5 @@
 @import "news-list.md";
 @import "news-list.lg";
 @import "news-list.xl";
+@import "news-list.sm.md";
 @import "news-list.md.lg.xl";
