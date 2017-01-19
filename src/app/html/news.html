@@ -1,14 +1,27 @@
-<a class="to-list" routerLink="/newslist">
+<div class="wait-indicator-panel" [hidden]="!newsLoadInProgress">
+	<div class="sk-cube-grid">
+		<div class="sk-cube sk-cube1"></div>
+		<div class="sk-cube sk-cube2"></div>
+		<div class="sk-cube sk-cube3"></div>
+		<div class="sk-cube sk-cube4"></div>
+		<div class="sk-cube sk-cube5"></div>
+		<div class="sk-cube sk-cube6"></div>
+		<div class="sk-cube sk-cube7"></div>
+		<div class="sk-cube sk-cube8"></div>
+		<div class="sk-cube sk-cube9"></div>
+	</div>
+</div>
+<a class="to-list" routerLink="/newslist" *ngIf="!newsLoadInProgress">
 	К списку
 </a>
-<div class="news tile" *ngIf="news">
+<div class="news tile" *ngIf="news" [@routeAnimation]="'active'">
 	<img class="image" src="/data/images/{{news.id}}.jpg"/>
-	<div class="time">{{news.date.toLocaleString()}}</div>
+	<div class="time">{{news.date | customDateTime}}</div>
 	<div class="header">{{news.header}}</div>
 	<div class="text">
 		<p *ngFor="let contentItem of news.content">{{contentItem}}</p>
 	</div>
 </div>
-<a class="to-list" routerLink="/newslist">
+<a class="to-list" routerLink="/newslist" *ngIf="!newsLoadInProgress">
 	К списку
 </a>

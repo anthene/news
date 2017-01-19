@@ -29,11 +29,15 @@
 	}
 
 	.name {
+		.psl {
+			display: none;
+		}
+
 		.last, .news {
 			display: inline-block;
 		}
 
-		.last {
+		.psl, .last {
 			font-weight: bold;
 			color: $header-caption-color;
 		}
@@ -158,6 +162,6 @@
 }
 
 @import "app.xs.sm.md";
+@import "app.xs.sm";
 @import "app.xs";
-@import "app.sm";
 @import "app.md";

@@ -1,8 +1,8 @@
 $theme-color: #2196f3;
-$body-background: #333;
+$body-background: #555;
 $shadow-color: #777;
 $link-color: #000;
-$tile-background: linear-gradient(to bottom right, #222, #111);
+$tile-background: linear-gradient(to right, #333, #000);
 $tile-text-color: #ddd;
 
 $indent: 10px;
@@ -16,7 +16,7 @@ $header-height: $logo-size + 2 * $indent;
 $header-caption-color: #fff;
 $menu-height: 39px;
 
-$news-list-item-header-height: 60px;
+$news-list-item-header-height: 100px;
 
 $news-list-item-background: linear-gradient(to bottom right, #fff, #ddd);
 

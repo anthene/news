@@ -1,12 +1,6 @@
 @import "variables";
 
 @media screen and (max-width: $page-size-xs) {
-	.page-header {
-		.name {
-			display: none;
-		}
-	}
-
 	.menu {
 		display: flex;
 		z-index: 2;

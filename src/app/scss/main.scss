@@ -3,6 +3,10 @@
 @import "menu";
 @import "wait-indicator";
 
+html {
+  overflow-y: scroll;
+}
+
 body {
 	margin: 0;
 	color: $tile-text-color;
@@ -26,7 +30,7 @@ a, a:visited {
 }
 
 .grayscale-image {
-	filter: grayscale(75%);
+	filter: grayscale(50%);
 
 	&:hover {
 		filter: none;

@@ -1,0 +1,15 @@
+@import "variables";
+
+@media screen and (max-width: $page-size-sm) {
+	.page-header {
+		.name {
+			.psl {
+				display: inline-block;
+			}
+
+			.last, .news {
+				display: none;
+			}
+		}
+	}
+}

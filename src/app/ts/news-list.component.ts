@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { NewsListItem } from './news';
 import { NewsService } from './news-service';
 import { ListResult } from './get-min-size-array';
+import { routeAnimation } from './route.animation';
 
 @Component({
 	//moduleId: module.id,
 	//selector: 'news-list',
-	templateUrl: 'app/html/news-list.html'
+	templateUrl: 'app/html/news-list.html',
+	animations: routeAnimation()
 })
 export class NewsListComponent implements OnInit {
 	private newsList: NewsListItem[] = [];
