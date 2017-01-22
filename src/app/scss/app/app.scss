@@ -69,6 +69,26 @@
 	text-decoration: underline;
 }
 
+.menu {
+	display: none;
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	top: $header-height;
+	text-align: center;
+	
+	.menu-item {
+		background: #2196f3;
+		margin: 0 $indent / 2;
+		padding: $indent 2 * $indent;
+		display: inline-block;
+	}
+
+	.active-menu-item {
+		background: $active-menu-item-color;
+	}
+}
+
 .short-news-list-panel, .short-news-list-panel .wait-indicator-panel, .advertising-panel {
 	top: $header-height;
 	position: fixed;
@@ -102,17 +122,23 @@
 
 		.short-news {
 			width: $side-column-width - $indent / 2;
-			display: flex;
 			margin-top: $indent;
 			border-left: $indent / 2 $theme-color solid;
 
 			.time, .header {
 				margin: $indent;
+				display: inline-block;
+				vertical-align: top;
 			}
 
 			.time {
+				width: $short-news-time-width;
 				color: $theme-color;
 				margin-right: 0;
+			}
+
+			.header {
+				width: calc(100% - 10px / 2 - 10px * 3 - 40px);
 			}
 		}
 
@@ -148,7 +174,6 @@
 
 .content {
 	margin: $header-height + $indent $side-column-width + 2 * $indent $indent $side-column-width + 2 * $indent;
-	min-height: calc(100% - 68px - 10px - 1px); // scrollbar should be always visible
 }
 
 .more-news {

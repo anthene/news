@@ -2,8 +2,7 @@
 
 @media screen and (max-width: $page-size-xs) {
 	.menu {
-		display: flex;
-		z-index: 2;
+		display: block;
 	}
 
 	.short-news-list-panel {

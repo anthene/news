@@ -16,13 +16,14 @@ $header-height: $logo-size + 2 * $indent;
 $header-caption-color: #fff;
 $menu-height: 39px;
 
+$short-news-time-width: 40px;
+
 $news-list-item-header-height: 100px;
 
 $news-list-item-background: linear-gradient(to bottom right, #fff, #ddd);
 
 $news-list-item-bottom-border-width: 1px;
 $news-list-item-bottom-border-color: #aaa;
-$news-list-item-flex-basis: 260px; // todo: discover how to calculate
 
 $page-size-min: 320px;
 $page-size-xs: 480px;
