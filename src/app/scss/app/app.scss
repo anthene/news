@@ -148,6 +148,7 @@
 
 .content {
 	margin: $header-height + $indent $side-column-width + 2 * $indent $indent $side-column-width + 2 * $indent;
+	min-height: calc(100% - 68px - 10px - 1px); // scrollbar should be always visible
 }
 
 .more-news {
@@ -155,6 +156,7 @@
 	padding: $indent 0;
 	cursor: pointer;
 	text-align: center;
+	text-transform: uppercase;
 }
 
 .more-news:hover {

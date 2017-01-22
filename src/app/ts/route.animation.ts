@@ -6,10 +6,10 @@ export function routeAnimation() {
 			state('void', style({opacity: 0}) ),
 			state('*', style({opacity: 1}) ),
 			transition('void => *', [
-				animate(5000)
+				animate(3000)
 			]),
 			transition('* => void', [
-				animate(5000)
+				animate(3000)
 			])
 		])
 	]
