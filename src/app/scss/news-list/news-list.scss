@@ -8,7 +8,7 @@
 		top: $header-height;
 		z-index: 3;
 
-		.sk-cube-grid {
+		.sk-cube-grid, .cube-black {
 			position: fixed;
 			top: calc(100% / 2 + 40px / 2); // todo: why '+'
 			left: calc(100% / 2 - 40px / 2);

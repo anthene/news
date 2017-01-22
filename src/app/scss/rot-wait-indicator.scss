@@ -1,0 +1,28 @@
+@import "variables";
+
+.cube-black {
+  width: $cube-size;
+  height: $cube-size;
+  animation: spin $rotation-time infinite linear;
+  box-shadow: 0 0 5px 1px white;
+
+  .cube-blue {
+    border-top: $cube-size / 3 solid black;
+    border-right: $cube-size / 3 solid black;
+    width: 2 * $cube-size / 3;
+    height: 2 * $cube-size / 3;
+
+    .cube-white {
+      border-bottom: $cube-size / 3 solid $theme-color;
+      border-left: $cube-size / 3 solid $theme-color;
+      width: $cube-size / 3;
+      height: $cube-size / 3;
+      background: white;
+    }
+  }
+}
+
+@keyframes spin {
+	0%  {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(360deg);}	
+}

@@ -3,7 +3,7 @@
 @media screen and (min-width: $page-size-xs + 1) and (max-width: $page-size-md) {
 	.content {
 		.wait-indicator-panel {
-			.sk-cube-grid {
+			.sk-cube-grid, .cube-black {
 				left: calc(100% / 2 - 40px / 2 + 320px / 2);
 			}
 		}

@@ -84,7 +84,7 @@
 		width: $side-column-width + 2 * $indent;
 		left: 0;
 
-		.sk-cube-grid {
+		.sk-cube-grid, .cube-black {
 			position: fixed;
 			top: calc(100% / 2 + 40px / 2); // todo: why '+'
 			left: calc(320px / 2 - 40px / 2)
