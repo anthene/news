@@ -4,6 +4,9 @@
 		"**/*.gitignore": true,
 		"bin": true,
 		"node_modules": true,
+		"syncro/news": true,
+		"syncro/**/*.js.map": true,
+		"syncro/**/*.js": true,
 		"src/**/*.js.map": true,
 		"src/**/*.js": true
 	}
