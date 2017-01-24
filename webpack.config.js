@@ -59,6 +59,8 @@ module.exports = {
             { from: "../data/*.json", to: 'data' },
             { from: "../data/images/*.jpg", to: 'images' },
             { from: '**/*.html', to: "app" },
+            { from: '../robots.txt' },
+            { from: '../sitemap.txt' },
             { from: '../logo.svg' },
             { from: '../favicon.ico' },
             { from: '../bfkh.jpg' },

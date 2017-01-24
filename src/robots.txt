@@ -1,0 +1,3 @@
+User-agent: YandexNews
+Disallow: /data/*.json
+sitemap: http://psl-news.ru/sitemap.txt
