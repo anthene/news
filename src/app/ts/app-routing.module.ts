@@ -6,8 +6,8 @@ import { NewsComponent } from './news.component';
 import { AboutComponent } from './about.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/newslist', pathMatch: 'full' },
-	{ path: 'newslist',  component: NewsListComponent },
+	// { path: '', redirectTo: '/newslist', pathMatch: 'full' },
+	{ path: '',  component: NewsListComponent },
 	{ path: 'news/:id', component: NewsComponent },
 	{ path: 'about', component: AboutComponent }
 ];

@@ -11,7 +11,7 @@ export class CustomDateTimePipe implements PipeTransform {
 		const hours = date.getHours();
 		const minutes = date.getMinutes();
 
-		return  `${to00(days)}.${to00(1 + months)}.${years}, ${hours}:${minutes}`;
+		return  `${to00(days)}.${to00(1 + months)}.${years}, ${to00(hours)}:${to00(minutes)}`;
 	}
 }
 

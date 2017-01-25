@@ -18,7 +18,7 @@
 		</div>
 	</div>
 </div>
-<a class="to-list" routerLink="/newslist" *ngIf="!newsLoadInProgress">
+<a class="to-list" routerLink="/" *ngIf="!newsLoadInProgress">
 	К списку
 </a>
 <div class="news tile" *ngIf="news" [@routeAnimation]="'active'">
@@ -29,6 +29,6 @@
 		<p *ngFor="let contentItem of news.content">{{contentItem}}</p>
 	</div>
 </div>
-<a class="to-list" routerLink="/newslist" *ngIf="!newsLoadInProgress">
+<a class="to-list" routerLink="/" *ngIf="!newsLoadInProgress">
 	К списку
 </a>

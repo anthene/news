@@ -61,7 +61,7 @@ module.exports = {
             { from: '**/*.html', to: "app" },
             { from: '../robots.txt' },
             { from: '../sitemap.txt' },
-            { from: '../logo.svg' },
+            { from: '../logo.png' },
             { from: '../favicon.ico' },
             { from: '../bfkh.jpg' },
             { from: '../rusfond.jpg' },
