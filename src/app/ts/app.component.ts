@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { ShortNews } from './news';
 import { NewsService } from './news-service';
@@ -19,12 +21,15 @@ export class AppComponent implements OnInit {
 	currentMenuItem = MenuItem.News;
 
 	constructor(
+		private router: Router,
+		private titleService: Title,
 		private newsService: NewsService
 		) {
 	}
 
 	ngOnInit(): void {
 		this.getData(new Date());
+		this.router.events.subscribe(value => this.titleService.setTitle('ПОСЛЕДНИЕ НОВОСТИ'));
 	}
 
 	getMoreNews(): void {

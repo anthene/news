@@ -1,10 +1,11 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { routeAnimation } from './route.animation';
+import { Title } from '@angular/platform-browser';
 
 import { News } from './news';
 import { NewsService } from './news-service';
+import { routeAnimation } from './route.animation';
 
 @Component({
 	//moduleId: module.id,
@@ -17,6 +18,7 @@ export class NewsComponent implements OnInit {
 	newsLoadInProgress = false;
 
 	constructor(
+		private titleService: Title,
 		private route: ActivatedRoute,
 		private newsService: NewsService
 	) {
@@ -29,6 +31,7 @@ export class NewsComponent implements OnInit {
 			.switchMap((params: Params) => this.newsService.getNews(+params['id']))
 			.subscribe((news: News) => {
 				this.news = news;
+				this.titleService.setTitle(news.header);
 				while (new Date().valueOf() < loadStart + 1000) { }
 				this.newsLoadInProgress = false;
 			});
