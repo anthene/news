@@ -1,9 +1,10 @@
 {
 	"files.exclude": {
+		"data": true,
 		".vscode": true,
 		"**/*.gitignore": true,
-		"bin": true,
-		"node_modules": true,
+		"*/bin": true,
+		"*/node_modules": true,
 		"syncro/news": true,
 		"syncro/**/*.js.map": true,
 		"syncro/**/*.js": true,

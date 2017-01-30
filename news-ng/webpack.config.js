@@ -56,8 +56,8 @@ module.exports = {
         new CleanWebpackPlugin([output]),
         new CopyWebpackPlugin([
             //{ from: 'images', to: "images" },
-            { from: "../data/*.json", to: 'data' },
-            { from: "../data/images/*.jpg", to: 'images' },
+            { from: "../../../data/*.json", to: 'news-ng/bin/data' },
+            { from: "../../../data/images/*.jpg", to: 'bin/data/images' },
             { from: '**/*.html', to: "app" },
             { from: '../robots.txt' },
             { from: '../sitemap.txt' },
