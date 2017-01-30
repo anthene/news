@@ -1,3 +1,4 @@
-User-agent: YandexNews
+User-agent: *
 Disallow: /data/*.json
+Host: psl-news.ru
 sitemap: http://psl-news.ru/sitemap.txt

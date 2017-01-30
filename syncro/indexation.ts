@@ -2,7 +2,7 @@ import * as fs from "fs";
 
 const titleTemplate = "{{title}}";
 const contentTemplate = "{{content}}";
-const dataPath = "src\\data";
+const dataPath = "syncro";
 const indexPath = "syncro\\index.html";
 const outputPath = "syncro\\news";
 
