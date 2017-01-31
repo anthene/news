@@ -1,0 +1,19 @@
+{
+  "name": "news-sync",
+  "version": "0.1.0",
+  "description": "syncro",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "npm run tsc && node indexation.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "news-core": "file:../news-core"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.4",
+    "typescript": "^2.1.5"
+  }
+}
