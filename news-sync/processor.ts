@@ -22,7 +22,7 @@ export class Processor {
 		for (const plugin of this.config.plugins) {
 			plugin.init();
 			for (const news of newsList) {
-				plugin.process(news, this.config);
+				plugin.process(news);
 			}
 		}
 	}

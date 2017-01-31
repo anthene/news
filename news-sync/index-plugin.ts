@@ -3,7 +3,6 @@ import * as path from "path";
 import { News } from "news-core";
 
 import { Plugin } from "./plugin"
-import { ProcessorConfig } from "./processor"
 
 interface IndexPluginConfig {
 	outputPath: string
@@ -20,7 +19,7 @@ export class IndexPlugin implements Plugin {
 		this.indexTemplate = fs.readFileSync(this.config.indexTemplatePath, "utf8");
 	}
 
-	process(news: News, processorConfig: ProcessorConfig) {
+	process(news: News) {
 		const indexFileContent = this.indexTemplate
 			.replace("{{title}}", news.header)
 			.replace("{{content}}", news.content.join("\r\n"))
