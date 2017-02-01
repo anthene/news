@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
+    "tsc:w": "tsc -w",
     "start": "npm run tsc && node indexation.js"
   },
   "author": "",

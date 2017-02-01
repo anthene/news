@@ -2,7 +2,7 @@
   "name": "news-core",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/index",
   "scripts": {
     "tsc": "tsc",
     "start": "npm run tsc"

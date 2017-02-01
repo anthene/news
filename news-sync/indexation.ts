@@ -3,6 +3,7 @@ import { SitemapPlugin } from "./sitemap-plugin"
 import { Processor } from "./processor"
 
 new Processor({
+	ignoreListFile: ".newsignore",
 	newsPath: "..\\data",
 	daysCount: 3,
 	getNewsListFileName: (param: string) => `news-list-${param}.json`,

@@ -13,3 +13,5 @@ export interface News {
 	header: string;
 	content: string[];
 }
+
+export const minDateEver = new Date(Date.UTC(2016, 11, 1));
