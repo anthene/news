@@ -11,6 +11,7 @@ import { NewsService } from './news-service';
 import { NewsConverter } from './news-converter';
 import { CustomTimePipe } from './custom-time.pipe';
 import { CustomDateTimePipe } from './custom-date-time.pipe';
+import { NewsNotificationService } from "./news-notification.service";
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -24,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 		AppComponent, NewsListComponent, NewsComponent, AboutComponent,
 		CustomTimePipe, CustomDateTimePipe
 	],
-	providers: [ NewsService, NewsConverter ],
+	providers: [ NewsService, NewsConverter, NewsNotificationService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }

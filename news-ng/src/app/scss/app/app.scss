@@ -176,12 +176,21 @@
 	margin: $header-height + $indent $side-column-width + 2 * $indent $indent $side-column-width + 2 * $indent;
 }
 
-.more-news {
+.more-news, .notification {
 	background: $theme-color;
 	padding: $indent 0;
 	cursor: pointer;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+.notification {
+	top: $indent;
+	padding: $indent 2 * $indent;
+	right: $indent;
+	z-index: 4;
+	display: inline-block;
+	position: fixed;
 }
 
 .more-news:hover {

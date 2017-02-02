@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 import { ShortNews } from './news';
 import { NewsService } from './news-service';
 import { ListResult } from './get-min-size-array';
+import { NewsNotificationService } from "./news-notification.service";
 
 const millisecondsInDay = 24 * 60 * 60 * 1000;
 
@@ -19,12 +20,15 @@ export class AppComponent implements OnInit {
 	shortNewsListLoadInProgress = false;
 	lastDate = new Date();
 	currentMenuItem = MenuItem.News;
+	notificationVisible = false;
 
 	constructor(
 		private router: Router,
 		private titleService: Title,
-		private newsService: NewsService
+		private newsService: NewsService,
+		private newsNotificationService: NewsNotificationService
 		) {
+		this.setNotificationVisible();
 	}
 
 	ngOnInit(): void {
@@ -35,6 +39,19 @@ export class AppComponent implements OnInit {
 	getMoreNews(): void {
 		if (!this.shortNewsListLoadInProgress)
 			this.getData(new Date(this.lastDate.valueOf()));
+	}
+
+	showNotification() {
+		this.newsNotificationService.showNotification("yes, man!!");
+	}
+
+	requestNotification() {
+		this.newsNotificationService.requestPermission(state => this.setNotificationVisible());
+	}
+
+	private setNotificationVisible() {
+		this.notificationVisible = this.newsNotificationService.isNotificationPossible() &&
+			this.newsNotificationService.isNotificationDefault();
 	}
 
 	private getData(maxDate: Date): void {

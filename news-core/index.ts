@@ -15,3 +15,5 @@ export interface News {
 }
 
 export const minDateEver = new Date(Date.UTC(2016, 11, 1));
+
+export * from "./notification.service";
