@@ -15,7 +15,7 @@ export class NotificationService {
 	}
 
 	isNotificationPossible() {
-		return Notification !== undefined;
+		return (<any>window).Notification !== undefined;
 	}
 
 	isNotificationDefault() {

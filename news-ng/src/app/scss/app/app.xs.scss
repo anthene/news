@@ -48,3 +48,11 @@
 		display: block;
 	}
 }
+
+@media screen and (max-width: $max-psl-name-visible) {
+	.page-header {
+		.name {
+			display: none;
+		}
+	}
+}

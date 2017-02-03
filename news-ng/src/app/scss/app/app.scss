@@ -78,7 +78,7 @@
 	text-align: center;
 	
 	.menu-item {
-		background: #2196f3;
+		background: $theme-color;
 		margin: 0 $indent / 2;
 		padding: $indent 2 * $indent;
 		display: inline-block;
@@ -195,9 +195,9 @@
 }
 
 .notification {
-	top: $indent;
+	top: ($header-height - $menu-height) / 2;
+	right: ($header-height - $menu-height) / 2;
 	padding: $indent 2 * $indent;
-	right: $indent;
 	z-index: 4;
 	display: inline-block;
 	position: fixed;
