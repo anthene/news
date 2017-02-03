@@ -50,6 +50,7 @@
 		</div>
 	</div>
 	<div class="short-news-list">
+		<div id="one-line" class="tile">ОДНОЙ СТРОКОЙ</div>
 		<div *ngFor="let shortNews of shortNewsList" class="short-news tile">
 			<div class="time">{{shortNews.date | customTime}}</div>
 			<div class="header">{{shortNews.header}}</div>

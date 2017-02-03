@@ -5,6 +5,10 @@
 		display: block;
 	}
 
+	#main, #one-line {
+		display: none;
+	}
+
 	.short-news-list-panel {
 		width: calc(100% - 10px);
 

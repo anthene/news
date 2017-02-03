@@ -112,6 +112,13 @@
 	}
 }
 
+#one-line, #main {
+	padding: $indent 0;
+	text-align: center;
+	border-left: $indent / 2 $theme-color solid;
+	color: $theme-color;
+}
+
 .short-news-list-panel {
 	left: $indent;
 
@@ -120,9 +127,12 @@
 		height: 100%;
 		width: calc(100% + 17px);
 
-		.short-news {
+		.short-news, #one-line {
 			width: $side-column-width - $indent / 2;
 			margin-top: $indent;
+		}
+
+		.short-news {
 			border-left: $indent / 2 $theme-color solid;
 
 			.time, .header {
