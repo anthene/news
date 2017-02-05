@@ -1,27 +1,20 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { ShortNews, NewsListItem, News, ListResult, toNumberedUtcDate } from '../';
+import { NewsConverter } from '../news-converter';
+import { getMinSizeArray } from '../get-min-size-array';
+import { millisecondsInDay } from "../milliseconds-in-day";
+import { minDateEver } from "../min-date-ever";
 
-import 'rxjs/add/operator/toPromise';
-
-import { ShortNews, NewsListItem, News } from './news';
-import { NewsConverter } from './news-converter';
-import { ListResult, getMinSizeArray } from './get-min-size-array';
-import { toNumberedUtcDate } from './extensions';
-
-const minPossibleDate = new Date(Date.UTC(2016, 11, 1));
 const shortNewsCount = 15;
 
-const millisecondsInDay = 24 * 60 * 60 * 1000;
 const dataPath = 'data';
 
-@Injectable()
 export class NewsService {
 	constructor(
-		private http: Http,
+		private http: { get: (url: string) => Promise<{ json: () => any }> },
 		private newsConverter: NewsConverter
 	) { }
 
-	getShortNews(maxDate = new Date(), minDate = minPossibleDate): Promise<ListResult<ShortNews>> {
+	getShortNews(maxDate = new Date(), minDate = minDateEver): Promise<ListResult<ShortNews>> {
 		return getMinSizeArray(
 			shortNewsCount,
 			day => this.getData(`${dataPath}/short-news-list-${getDate(day, maxDate)}.json`, this.newsConverter.shortNewsListFromJson),
@@ -29,7 +22,7 @@ export class NewsService {
 			minDate);
 	}
 
-	getNewsList(maxDate: Date, newsCount: number, minDate = minPossibleDate): Promise<ListResult<NewsListItem>> {
+	getNewsList(maxDate: Date, newsCount: number, minDate = minDateEver): Promise<ListResult<NewsListItem>> {
 		return getMinSizeArray(
 			newsCount,
 			day => this.getData(`${dataPath}/news-list-${getDate(day, maxDate)}.json`, this.newsConverter.newsListFromJson),
@@ -43,14 +36,13 @@ export class NewsService {
 
 	private getData<T>(url: string, converter: (json: any) => T): Promise<T> {
 		return this.http.get(url + `?date=${new Date().valueOf()}`)
-			.toPromise()
 			.then(response => converter(response.json()))
 			.catch(handleError);
 	}
 }
 
 function getDate(day: number, maxDate: Date) {
-	const date = new Date(maxDate.valueOf() - day * millisecondsInDay) as any;
+	const date = new Date(maxDate.valueOf() - day * millisecondsInDay);
 	return toNumberedUtcDate(date);
 }
 

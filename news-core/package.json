@@ -5,11 +5,16 @@
   "main": "dist/index",
   "scripts": {
     "tsc": "tsc",
+    "jasmine": "jasmine",
+    "test": "npm run tsc && npm run jasmine",
     "start": "npm run tsc"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/core-js": "^0.9.35",
+    "@types/jasmine": "^2.5.41",
+    "jasmine": "^2.5.3",
     "typescript": "^2.1.5"
   }
 }

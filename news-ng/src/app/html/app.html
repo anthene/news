@@ -5,7 +5,7 @@
 	<!--<div class="motto">БУДЬ В КУРСЕ</div>-->
 </a>
 
-<div class="logo" (click)="showNotification()">
+<div class="logo">
 	<img src="/logo.png" width="100%" height="100%"/>
 </div>
 
@@ -15,7 +15,7 @@
 </a>
 -->
 
-<div class="notification" *ngIf="notificationVisible" (click)="requestNotification()">
+<div class="notification" *ngIf="getNotificationVisible()" (click)="requestNotification()">
 	Уведомления
 </div>
 

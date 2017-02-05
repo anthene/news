@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NewsListComponent } from './news-list.component';
 import { NewsComponent } from './news.component';
 import { AboutComponent } from './about.component';
-import { NewsService } from './news-service';
+import { NewsService } from './news.service';
 import { NewsConverter } from './news-converter';
 import { CustomTimePipe } from './custom-time.pipe';
 import { CustomDateTimePipe } from './custom-date-time.pipe';

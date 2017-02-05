@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { to00 } from './extensions';
+import { to00 } from 'news-core';
 
 @Pipe({ name: 'customTime' })
 export class CustomTimePipe implements PipeTransform {

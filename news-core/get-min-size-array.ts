@@ -1,9 +1,5 @@
-const millisecondsInDay = 24 * 60 * 60 * 1000;
-
-export interface ListResult<T> {
-	list: T[];
-	minDate: Date;
-}
+import { ListResult } from './list-result';
+import { millisecondsInDay } from "./milliseconds-in-day";
 
 export function getMinSizeArray<T>(
 		minCount: number,

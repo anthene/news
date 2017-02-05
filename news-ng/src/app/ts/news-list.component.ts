@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NewsListItem } from './news';
-import { NewsService } from './news-service';
-import { ListResult } from './get-min-size-array';
+import { NewsListItem, ListResult } from 'news-core';
+import { NewsService } from './news.service';
 import { routeAnimation } from './route.animation';
 
 @Component({
