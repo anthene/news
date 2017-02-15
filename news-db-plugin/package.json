@@ -1,0 +1,21 @@
+{
+  "name": "news-db-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "npm run tsc && node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/core-js": "^0.9.35",
+    "@types/node": "^7.0.5",
+    "typescript": "^2.1.6"
+  },
+  "dependencies": {
+    "news-core": "file:../news-core",
+    "pg-io": "^0.8.2"
+  }
+}

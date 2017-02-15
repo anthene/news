@@ -1,5 +1,6 @@
 import { IndexPlugin } from "./index-plugin"
 import { SitemapPlugin } from "./sitemap-plugin"
+import { DbPlugin } from "news-db-plugin";
 import { Processor } from "./processor"
 
 new Processor({
@@ -16,6 +17,7 @@ new Processor({
 		new SitemapPlugin({
 			filePath: "..\\sitemap.txt",
 			getLink: (id: number) => `http://psl-news.ru/news/${id}\r\n`
-		})
+		}),
+		new DbPlugin()
 	]
 }).process();
