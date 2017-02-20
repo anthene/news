@@ -12,8 +12,6 @@ interface SitemapPluginConfig {
 export class SitemapPlugin implements Plugin {
 	constructor(private config: SitemapPluginConfig) { }
 
-	init() { }
-
 	process(news: News) {
 		fs.appendFileSync(this.config.filePath, this.config.getLink(news.id))
 	}

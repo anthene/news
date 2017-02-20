@@ -14,12 +14,14 @@ export interface ProcessorConfig {
 }
 
 export class Processor {
-    private idsToIgnore: number[]
+    private idsToIgnore: number[] = []
 
     constructor(private config: ProcessorConfig) {
         if (this.config.ignoreListFile) {
-            const file = fs.readFileSync(this.config.ignoreListFile, "utf8").split("\r\n");
-			this.idsToIgnore = file.map(id => parseInt(id));
+			this.idsToIgnore = fs
+				.readFileSync(this.config.ignoreListFile, "utf8")
+				.split("\r\n")
+				.map(id => parseInt(id));
         }
     }
 
@@ -28,13 +30,15 @@ export class Processor {
 		this.fillNewsList(newsList)
 
 		for (const plugin of this.config.plugins) {
-			plugin.init();
+			plugin.init && plugin.init();
 			for (const news of newsList) {
 				plugin.process(news);
 			}
 		}
 
-		fs.appendFile(this.config.ignoreListFile, newsList.map(news => news.id.toString()).join("\r\n") + "\r\n");
+        if (this.config.ignoreListFile) {
+			fs.appendFileSync(this.config.ignoreListFile, newsList.map(news => `${news.id}\r\n`).join(""));
+		}
 	}
 
 	private getNewsList() {

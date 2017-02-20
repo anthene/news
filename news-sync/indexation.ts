@@ -6,7 +6,7 @@ import { Processor } from "./processor"
 new Processor({
 	ignoreListFile: ".newsignore",
 	newsPath: "..\\data",
-	daysCount: 3,
+	//daysCount: 3,
 	getNewsListFileName: (param: string) => `news-list-${param}.json`,
 	getNewsFileName: (id: number) => `${id}.json`,
 	plugins: [
@@ -16,8 +16,11 @@ new Processor({
 		}),
 		new SitemapPlugin({
 			filePath: "..\\sitemap.txt",
-			getLink: (id: number) => `http://psl-news.ru/news/${id}\r\n`
+			getLink: (id: number) => `http://psl-news.ru/news/${id}/\r\n`
 		}),
-		new DbPlugin()
+		// new DbPlugin(),
+		{
+			process: news => console.log(`${news.id} successfully processed.`)
+		}
 	]
 }).process();

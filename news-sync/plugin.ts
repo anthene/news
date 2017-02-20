@@ -1,6 +1,6 @@
 import { News } from "news-core";
 
 export interface Plugin {
-	init(): void
+	init?(): void
 	process(news: News): void
 }
