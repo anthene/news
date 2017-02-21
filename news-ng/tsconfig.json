@@ -1,13 +1,7 @@
 {
+  "extends": "../tsconfig",
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "typeRoots": [ "node_modules/@types" ],
-    "removeComments": true,
-    "noImplicitAny": true
+    "declaration": false,
+    "typeRoots": [ "node_modules/@types" ]
   }
 }

@@ -1,14 +1,6 @@
 {
+  "extends": "../tsconfig",
   "compilerOptions": {
-    "outDir": "./dist",
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "declaration": true,
-    "removeComments": true,
-    "noImplicitAny": true
+    "outDir": "./dist"
   }
 }
