@@ -14,7 +14,7 @@ export class IndexPlugin implements Plugin {
 
 	constructor(private config: IndexPluginConfig) { }
 
-	init() {
+	async init() {
 		fs.mkdirSync(this.config.outputPath);
 		this.indexTemplate = fs.readFileSync(this.config.indexTemplatePath, "utf8");
 	}

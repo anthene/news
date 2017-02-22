@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig",
   "compilerOptions": {
+    "target": "es6",
     "declaration": false,
     "noImplicitAny": false
   }

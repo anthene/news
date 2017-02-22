@@ -11,11 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "news-core": "file:../news-core",
+    "news-core": "file:../news-core-new",
     "news-db-plugin": "file:../news-db-plugin"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.35",
     "@types/node": "^7.0.4",
     "typescript": "^2.1.5"
   }

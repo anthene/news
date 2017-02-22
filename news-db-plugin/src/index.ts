@@ -1,8 +1,6 @@
 import { News } from "news-core";
 import { Database } from 'pg-io';
 
-// get a connection session
-
 export class DbPlugin {
 
 	private database: Database;
@@ -11,27 +9,23 @@ export class DbPlugin {
 		this.database = new Database({
 			connection: {
 				host: 'localhost',
-				database: 'test',
+				database: 'news',
 				user: 'postgres',
 				password: '1'
 			}
 		});
 	}
 
-	// todo: remove
-	init() {
-
-	}
-
-	process(news: News) {
-		this.database.connect().then(session => {
-
-			const query = {
+	async process(news: News) {
+		const session = await this.database.connect();
+		try {
+			await session.execute({
 				text: 'insert into news values ({{id}}, {{date}}, {{header}});',
 				params: news
-			};
-
-			return session.execute(query).then(() => session.close());
-		});
+			});
+		}
+		finally {
+			await session.close();
+		}
 	}
 }

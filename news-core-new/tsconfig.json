@@ -1,9 +1,7 @@
 {
   "extends": "../tsconfig",
   "compilerOptions": {
-    "target": "es6",
-    "outDir": "./bin",
-    "noImplicitAny": false
+    "outDir": "./bin"
   },
   "include": [
       "src/**/*"

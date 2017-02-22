@@ -25,12 +25,15 @@ export class Processor {
         }
     }
 
-	process() {
+	async process() {
 		const newsList = this.getNewsList()
 		this.fillNewsList(newsList)
 
 		for (const plugin of this.config.plugins) {
-			plugin.init && plugin.init();
+			plugin.init && await plugin.init();
+		}
+
+		for (const plugin of this.config.plugins) {
 			for (const news of newsList) {
 				plugin.process(news);
 			}
