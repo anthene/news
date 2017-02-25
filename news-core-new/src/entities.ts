@@ -1,4 +1,8 @@
-import { NewsBase } from "./news-base"
+export interface NewsBase {
+	id: number;
+	date: Date;
+	header: string;
+}
 
 export interface ImageInfo {
 	author: string;

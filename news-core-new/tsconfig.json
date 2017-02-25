@@ -4,6 +4,6 @@
     "outDir": "./bin"
   },
   "include": [
-      "src/**/*"
+    "src/**/*"
   ]
 }

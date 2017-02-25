@@ -2,11 +2,11 @@
   "name": "news-sync",
   "version": "0.1.0",
   "description": "syncro",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "start": "npm run tsc && node indexation.js"
+    "start": "npm run tsc && node bin/indexation.js"
   },
   "author": "",
   "license": "ISC",
