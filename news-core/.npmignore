@@ -1,7 +1,5 @@
 .npmignore
 tsconfig.json
 spec
-**/*.ts
 dist/**/*.js.map
-!dist/**/*.d.ts
 dist/spec

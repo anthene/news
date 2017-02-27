@@ -5,7 +5,6 @@ import { Title } from '@angular/platform-browser';
 import { AppController } from "news-core";
 
 import { NewsService } from './news.service';
-import { NewsNotificationService } from "./news-notification.service";
 
 @Component({
 	//moduleId: module.id,
@@ -16,13 +15,12 @@ export class AppComponent extends AppController implements OnInit {
 	constructor(
 		router: Router,
 		titleService: Title,
-		newsService: NewsService,
-		newsNotificationService: NewsNotificationService
+		newsService: NewsService
 		) {
-		super(router, titleService, newsService, newsNotificationService, 10000)
+		super(router, titleService, newsService)
 	}
 
 	ngOnInit(): void {
-		this.onInit();
+		super.onInit();
 	}
 }

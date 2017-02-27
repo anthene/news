@@ -184,7 +184,7 @@
 	margin: $header-height + $indent $side-column-width + 2 * $indent $indent $side-column-width + 2 * $indent;
 }
 
-.more-news, .notification {
+.more-news {
 	background: $theme-color;
 	padding: $indent 0;
 	cursor: pointer;
@@ -192,16 +192,7 @@
 	text-transform: uppercase;
 }
 
-.notification {
-	top: ($header-height - $menu-height) / 2;
-	right: ($header-height - $menu-height) / 2;
-	padding: $indent 2 * $indent;
-	z-index: 4;
-	display: inline-block;
-	position: fixed;
-}
-
-.more-news:hover, .notification:hover {
+.more-news:hover {
 	text-decoration: underline;
 }
 

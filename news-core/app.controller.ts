@@ -1,7 +1,7 @@
 import { ShortNews } from './short-news';
 import { ListResult } from './list-result';
 import { NewsListItem } from './news';
-import { NewsService, NotificationService } from "./services";
+import { NewsService } from "./services";
 import { millisecondsInDay } from "./milliseconds-in-day";
 
 export class AppController {
@@ -15,49 +15,18 @@ export class AppController {
 	constructor(
 		private router: { events: { subscribe: (value: any) => void } },
 		private titleService: { setTitle: (title: string) => void },
-		private newsService: NewsService,
-		private notificationService: NotificationService,
-		private updateInterval = 60 * 10 * 1000
+		private newsService: NewsService
 		) {
 	}
 
 	protected onInit(): void {
-		this.startWaitingForNewNews();
 		this.getData(new Date());
 		this.router.events.subscribe((value: any) => this.titleService.setTitle('ПОСЛЕДНИЕ НОВОСТИ'));
-	}
-
-	startWaitingForNewNews() {
-		setInterval(() => {
-			this.newsService.getNewsList(new Date(), 1)
-				.then(res => {
-					const newsList = res.list;
-					if (newsList.length > 0) {
-						if (this.lastNewsId === undefined) {
-							this.lastNewsId = newsList[0].id
-						}
-						else {
-							if (this.lastNewsId !== newsList[0].id && this.notificationService.isNotificationEnabled()) {
-								this.newsService.getNews(this.lastNewsId = newsList[0].id)
-									.then(news => this.notificationService.showNotification(news))
-							}
-						}
-					}
-				})
-		}, this.updateInterval);
 	}
 
 	getMoreNews(): void {
 		if (!this.shortNewsListLoadInProgress)
 			this.getData(new Date(this.lastDate.valueOf()));
-	}
-
-	requestNotification() {
-		this.notificationService.requestPermission();
-	}
-
-	getNotificationVisible() {
-		return this.notificationService.isNotificationRequestRequired();
 	}
 
 	protected getData(maxDate: Date): void {

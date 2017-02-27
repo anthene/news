@@ -1,5 +1,5 @@
 import { AppController } from "../"
-import { NewsService, NotificationService } from "../services"
+import { NewsService } from "../services"
 
 describe("AppController", () => {
 
@@ -22,12 +22,9 @@ describe("AppController", () => {
 
 						return newsPromise
 					}
-				},
-				undefined,
-				1000)
+				})
 
 			// act
-			appController.startWaitingForNewNews();
 			jasmine.clock().tick(1100)
 
 			// assert
@@ -35,29 +32,6 @@ describe("AppController", () => {
 			newsPromise.then(res => {
 				expect(appController.lastNewsId).toBe(1942761229)
 				done()
-			})
-		})
-	})
-
-	describe("getNotificationVisible", () => {
-		[
-			[false, false],
-			[true, true]
-		].forEach(testCase => {
-			it("should return correct value", () => {
-				// arrange
-				const appController = new AppController(
-					undefined,
-					undefined,
-					undefined,
-					<NotificationService>{
-						isNotificationRequestRequired: () => testCase[0]
-					})
-
-				// act
-
-				// assert
-				expect(appController.getNotificationVisible()).toBe(testCase[1])
 			})
 		})
 	})
