@@ -192,6 +192,32 @@
 	text-transform: uppercase;
 }
 
+#social-networks {
+    top: ($header-height - $menu-height) / 2;
+    right: ($header-height - $menu-height) / 2;
+    z-index: 4;
+    display: inline-block;
+    position: fixed;
+
+	a {
+		background: $theme-color;
+		display: inline-block;
+		margin-right: $indent;
+		vertical-align: bottom;
+		height: $social-network-icon-height;
+		width: $social-network-icon-width;
+		text-align: center;
+
+		img {
+			margin: $indent;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
 .more-news:hover {
 	text-decoration: underline;
 }

@@ -58,6 +58,7 @@ module.exports = {
             //{ from: 'images', to: "images" },
             { from: "../../../data/*.json", to: 'news-ng/bin/data' },
             { from: "../../../data/images/*.jpg", to: 'bin/data/images' },
+            { from: "../sn/*.png", to: 'sn' },
             { from: '**/*.html', to: "app" },
             { from: '../robots.txt' },
             { from: '../sitemap.txt' },
