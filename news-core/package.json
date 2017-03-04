@@ -5,12 +5,16 @@
   "main": "bin/index",
   "typings": "bin/index",
   "scripts": {
+    "jasmine": "jasmine",
     "tsc": "tsc",
-    "test": "npm run tsc"
+    "tsc:spec": "tsc -p tsconfig.spec.json",
+    "test": "npm run tsc && npm run tsc:spec && npm run jasmine"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jasmine": "^2.5.43",
+    "jasmine": "^2.5.3",
     "typescript": "^2.1.5"
   }
 }
