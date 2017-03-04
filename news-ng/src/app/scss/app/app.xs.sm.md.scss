@@ -1,6 +1,18 @@
 @import "variables";
 
 @media screen and (max-width: $page-size-md) {
+	.page-header {
+		.name {
+			.psl {
+				display: inline-block;
+			}
+
+			.last, .news {
+				display: none;
+			}
+		}
+	}
+
 	.content {
 		margin-right: $indent;
 	}

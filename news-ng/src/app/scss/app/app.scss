@@ -193,16 +193,16 @@
 }
 
 #social-networks {
-    top: ($header-height - $menu-height) / 2;
-    right: ($header-height - $menu-height) / 2;
-    z-index: 4;
-    display: inline-block;
-    position: fixed;
+	top: ($header-height - $social-network-icon-height) / 2;
+	right: ($header-height - $social-network-icon-height) / 2;
+	z-index: 4;
+	display: inline-block;
+	position: fixed;
 
 	a {
 		background: $theme-color;
 		display: inline-block;
-		margin-right: $indent;
+		margin-left: $indent;
 		vertical-align: bottom;
 		height: $social-network-icon-height;
 		width: $social-network-icon-width;
@@ -211,10 +211,12 @@
 		img {
 			margin: $indent;
 		}
+	}
 
-		&:last-child {
-			margin-right: 0;
-		}
+	#add-bookmark {
+		margin-left: $indent;
+		display: inline-block;
+		padding: $indent - ($menu-height - $social-network-icon-height) / 2 $indent;
 	}
 }
 

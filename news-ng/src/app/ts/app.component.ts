@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 
 import { AppController } from "news-core";
 
+import { BookmarkService } from "./bookmark.service"
 import { NewsService } from './news.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class AppComponent extends AppController implements OnInit {
 	constructor(
 		router: Router,
 		titleService: Title,
-		newsService: NewsService
+		newsService: NewsService,
+		public bookmarkService: BookmarkService
 		) {
 		super(router, titleService, newsService)
 	}

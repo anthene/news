@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NewsListComponent } from './news-list.component';
 import { NewsComponent } from './news.component';
 import { AboutComponent } from './about.component';
+import { BookmarkService } from "./bookmark.service"
 import { NewsService } from './news.service';
 import { NewsConverter } from './news-converter';
 import { CustomTimePipe } from './custom-time.pipe';
@@ -25,7 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
 		AppComponent, NewsListComponent, NewsComponent, AboutComponent,
 		CustomTimePipe, CustomDateTimePipe
 	],
-	providers: [ NewsService, NewsConverter, NewsNotificationService ],
+	providers: [ BookmarkService, NewsService, NewsConverter, NewsNotificationService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
