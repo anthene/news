@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "~2.2.0",
     "@angular/router": "~3.2.0",
     "core-js": "^2.4.1",
-    "news-web-core": "file:../news-core",
+    "news-web-core": "file:../news-web-core",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.39",
