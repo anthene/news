@@ -2,12 +2,13 @@
   "name": "news-web-core",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/index",
-  "typings": "dist/index",
+  "main": "bin/index",
+  "typings": "bin/index",
   "scripts": {
-    "tsc": "tsc",
     "jasmine": "jasmine",
-    "test": "npm run tsc && npm run jasmine",
+    "tsc": "tsc",
+    "tsc:spec": "tsc -p tsconfig.spec.json",
+    "test": "npm run tsc:spec && npm run jasmine",
     "start": "npm run tsc"
   },
   "author": "",

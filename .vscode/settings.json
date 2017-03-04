@@ -4,7 +4,6 @@
 		".vscode": true,
 		"**/*/bin": true,
 		"*/node_modules": true,
-		"news-web-core/dist/**": true,
 		"**/*.d.ts": true,
 		"**/*.js.map": true,
 		"**/*.js": true

@@ -8,7 +8,8 @@
     "jasmine": "jasmine",
     "tsc": "tsc",
     "tsc:spec": "tsc -p tsconfig.spec.json",
-    "test": "npm run tsc && npm run tsc:spec && npm run jasmine"
+    "test": "npm run tsc:spec && npm run jasmine",
+    "start": "npm run tsc"
   },
   "author": "",
   "license": "ISC",

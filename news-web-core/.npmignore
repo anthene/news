@@ -1,5 +1,4 @@
 .npmignore
-tsconfig.json
+tsconfig*.json
 spec
-dist/**/*.js.map
-dist/spec
+src
