@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { AppController } from "news-core";
+import { AppController } from "news-web-core"
 
 import { BookmarkService } from "./bookmark.service"
 import { NewsService } from './news.service';

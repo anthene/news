@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NewsListItem, ListResult } from 'news-core';
+import { NewsListItem, ListResult } from "news-web-core"
 import { NewsService } from './news.service';
 import { routeAnimation } from './route.animation';
 

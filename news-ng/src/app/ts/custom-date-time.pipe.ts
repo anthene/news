@@ -1,20 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { to00 } from 'news-core';
+import { toRuDate } from "news-web-core"
 
 @Pipe({ name: 'customDateTime' })
 export class CustomDateTimePipe implements PipeTransform {
-	transform(date: Date): string {
-		const years = date.getFullYear();
-		const months = date.getMonth();
-		const days = date.getDate();
-		const hours = date.getHours();
-		const minutes = date.getMinutes();
-
-		return  `${to00(days)}.${to00(1 + months)}.${years}, ${to00(hours)}:${to00(minutes)}`;
+	transform(date: Date) {
+		return toRuDate(date);
 	}
-}
-
-function toDate(date: Date) {
-	return new Date(date.getFullYear(), 1 + date.getMonth(), date.getDate());
 }

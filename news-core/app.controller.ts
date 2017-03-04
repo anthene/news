@@ -1,8 +1,8 @@
+import { NewsListItem, millisecondsInDay } from "news-core"
+
 import { ShortNews } from './short-news';
 import { ListResult } from './list-result';
-import { NewsListItem } from './news';
 import { NewsService } from "./services";
-import { millisecondsInDay } from "./milliseconds-in-day";
 
 export class AppController {
 	shortNewsList: ShortNews[] = [];

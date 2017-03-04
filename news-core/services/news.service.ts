@@ -1,8 +1,8 @@
-import { ShortNews, NewsListItem, News, ListResult, toNumberedUtcDate } from '../';
+import { NewsListItem, News, toNumberedUtcDate, millisecondsInDay, minDateEver } from "news-core"
+
+import { ShortNews, ListResult } from '../';
 import { NewsConverter } from '../news-converter';
 import { getMinSizeArray } from '../get-min-size-array';
-import { millisecondsInDay } from "../milliseconds-in-day";
-import { minDateEver } from "../min-date-ever";
 
 const shortNewsCount = 15;
 

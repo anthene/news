@@ -1,8 +1,9 @@
 {
-  "name": "news-core",
+  "name": "news-web-core",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index",
+  "typings": "dist/index",
   "scripts": {
     "tsc": "tsc",
     "jasmine": "jasmine",
@@ -11,6 +12,9 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "news-core": "file:../news-core-new"
+  },
   "devDependencies": {
     "@types/core-js": "^0.9.35",
     "@types/jasmine": "^2.5.41",

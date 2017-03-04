@@ -2,7 +2,7 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { NewsService as NewsServiceBase } from 'news-core';
+import { NewsService as NewsServiceBase } from "news-web-core"
 import { NewsConverter } from './news-converter';
 
 @Injectable()

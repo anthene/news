@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { News } from 'news-core';
+import { News } from "news-web-core"
 
 import { NewsService } from './news.service';
 import { routeAnimation } from './route.animation';

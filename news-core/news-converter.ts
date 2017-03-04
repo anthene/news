@@ -1,4 +1,5 @@
-import { NewsBase, ShortNews, NewsListItem, News } from './';
+import { NewsBase, NewsListItem, News } from "news-core"
+import { ShortNews } from './';
 
 export class NewsConverter {
 	shortNewsListFromJson(json: any): ShortNews[] {
