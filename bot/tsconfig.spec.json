@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig",
+  "compilerOptions": {
+    "target": "es6",
+    "outDir": "./spec/bin"
+  },
+  "include": [
+    "spec/**/*"
+  ]
+}

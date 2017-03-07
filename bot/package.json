@@ -1,0 +1,22 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index",
+  "typings": "bin/index",
+  "scripts": {
+    "jasmine": "jasmine",
+    "tsc": "tsc",
+    "tsc:spec": "tsc -p tsconfig.spec.json",
+    "test": "npm run tsc:spec && npm run jasmine",
+    "start": "npm run tsc && node bin/index"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.43",
+    "@types/node": "^7.0.5",
+    "jasmine": "^2.5.3",
+    "typescript": "^2.2.1"
+  }
+}
