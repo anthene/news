@@ -5,14 +5,18 @@ import { getSignature } from "./get-signature"
 import { sendRequest } from "./send-request"
 import { Tweet } from "./tweet"
 import { TwitterRequest } from "./twitter-request"
+import { UserSettings } from "./user-settings"
 
 export class TwitterBot {
-	async getPostsList() {
+	constructor (private userSettings: UserSettings) { }
+
+	async getPostsList(count: number) {
+		const userId = "831976240911376394"
 		const result = await this.send<Tweet[]>({
 			method: "GET",
 			host: "api.twitter.com",
-			path: "/1.1/statuses/user_timeline.json?id=831976240911376394&count=800"
-		}, { "id": "831976240911376394", "count": "800" })
+			path: `/1.1/statuses/user_timeline.json?id=${userId}&count=${count}`
+		}, { "id": userId, "count": count.toString() })
 
 		const tweets: Tweet[] = []
 
@@ -21,7 +25,9 @@ export class TwitterBot {
 				id: tweet.id,
 				id_str: tweet.id_str,
 				retweet_count: tweet.retweet_count,
+				retweeted: tweet.retweeted,
 				favorite_count: tweet.favorite_count,
+				favorited: tweet.favorited,
 			})
 		}
 
@@ -45,14 +51,7 @@ export class TwitterBot {
 	}
 
 	private async send<T>(options: RequestOptions, params: { [key: string]: string }) {
-		const twitterRequest = new TwitterRequest(options,
-			{
-				consumerKey: "p9p371gJa16FrATNAeFJJqQaA",
-				consumerSecret: "Ngi3GFrdvsF9M7qbF1DHw1obaPgBCKpd3kVxYaZaBySpbvhe1O",
-				token: "831976240911376394-4tSnna1gJYsFVTabzRavRzfgHQcmi7Q",
-				tokenSecret: "5RD4a2aPBFmit2jizijgOMxy3XpuGcdMiGDD2rQUzPbNZ"
-			}
-		)
+		const twitterRequest = new TwitterRequest(options, this.userSettings)
 
 		for (const key in params)
 			twitterRequest.params[key] = params[key]

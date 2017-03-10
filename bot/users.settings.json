@@ -1,0 +1,26 @@
+[
+	{
+		"id": "839964417445994496",
+		"name": "Валерия Семенова",
+		"consumerKey": "jvm3nPD4xDcKHO3MDkgUrOAD5",
+		"consumerSecret": "lg0cpuTzwLj4CyCBME3t6IJQ3CyYh4Lkx77Jqxkhg1qaFVugIi",
+		"token": "839964417445994496-O3oPyDDAXdQbnJL76rSmwk0Ai7icv3K",
+		"tokenSecret": "759lde2dTk4HQTt4xHDKV3U5bLUFvoyc0IXSW2ueUTBDY"
+	},
+	{
+		"id": "839960813276372998",
+		"name": "Максим Самсонов",
+		"consumerKey": "2O91C8WcQltLTt4H2EYosCK9U",
+		"consumerSecret": "gNqMyZ5kdt0PPa9oPSkxWqSILklDQnroQDk4d9K37iRavDgkfL",
+		"token": "839960813276372998-iA2ulVXToZnpAx9VQCwTv811jfLyw3B",
+		"tokenSecret": "o1stHwR8YBeXqI4QwdgAOG6IasdDAv4Lq5vYqkGv0oWRW"
+	},
+	{
+		"id": "831976240911376394",
+		"name": "psl_news",
+		"consumerKey": "p9p371gJa16FrATNAeFJJqQaA",
+		"consumerSecret": "Ngi3GFrdvsF9M7qbF1DHw1obaPgBCKpd3kVxYaZaBySpbvhe1O",
+		"token": "831976240911376394-4tSnna1gJYsFVTabzRavRzfgHQcmi7Q",
+		"tokenSecret": "5RD4a2aPBFmit2jizijgOMxy3XpuGcdMiGDD2rQUzPbNZ"
+	}
+]

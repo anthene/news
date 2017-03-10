@@ -1,5 +1,7 @@
 import { RequestOptions } from "http"
 
+import { UserSettings } from "./user-settings"
+
 export class TwitterRequest {
 	params: {
 		[key: string]: string
@@ -7,12 +9,7 @@ export class TwitterRequest {
 
 	constructor(
 		public requestOptions: RequestOptions,
-		public user: {
-			consumerKey: string
-			consumerSecret: string
-			token: string
-			tokenSecret: string
-		}) {
+		public user: UserSettings) {
 		this.params["oauth_consumer_key"] = user.consumerKey
 		this.params["oauth_nonce"] = "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"
 		this.params["oauth_signature_method"] = "HMAC-SHA1"
