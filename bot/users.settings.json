@@ -1,5 +1,45 @@
 [
 	{
+		"id": "840158606683197440",
+		"name": "Алексей Обухов",
+		"consumerKey": "B5qWyOWdxHrJ5WOg3oNZr3XTg",
+		"consumerSecret": "VURq8tRdTrpjGmf8Lfkqd6jAt7g0dwRx2nKcSfJ3poGEHvERTf",
+		"token": "840158606683197440-Wbr1npqdYxzrcnClVqEvWp1JPn05uAU",
+		"tokenSecret": "xpjswTFyfA2zeqRgNg56tTS0w3dfGU4iRIsfmRt8nE8xT"
+	},
+	{
+		"id": "840159292518989825",
+		"name": "Петр Умко",
+		"consumerKey": "UyPZGP9HF6gs5cgbQJ95k2Ye3",
+		"consumerSecret": "qbUa5ndM09J9CMb7leFVfEgpPrlXO8UhzgkDT7JCBTqGaUoGsT",
+		"token": "840159292518989825-GelUQFw7JIg6bonoD5EHOFGYLOQWybu",
+		"tokenSecret": "QjGnoMg1GUZIqi642KkZDAHFT1458Cbe2oq7EVDvYGRBd"
+	},
+	{
+		"id": "840160259012481024",
+		"name": "Денис Кожемяка",
+		"consumerKey": "A9rSMTfjFhU5thPT8EpJQDf5a",
+		"consumerSecret": "By6NjfATGxhugHA0Surnf1SzUJg5Xx7cWbzhvEFZIrVg349P7u",
+		"token": "840160259012481024-KxCxeFkxUEamxxQsXm6wP5C7bw6A8hD",
+		"tokenSecret": "1yGcPItI1WCWIzifV7TB5qDEkwOsQ2GDepT4kCCMYK10U"
+	},
+	{
+		"id": "840494349624442880",
+		"name": "Денис Шаулин",
+		"consumerKey": "YKq6DFqI4VZzZiUNbs2brCJdj",
+		"consumerSecret": "aK4L5n1aHOJ76JJiv3gsCaqtIc7cDQ0cWXo615mCxte9tEbmxV",
+		"token": "840494349624442880-RbtAjOirhZ5303RE70Z31vsn6n74ovo",
+		"tokenSecret": "Xslm08IswFaRlb9tXmXeZNsNV0jKgTqpFIbmqHPKb2CT2"
+	},
+	{
+		"id": "840491087659749376",
+		"name": "Александр Зуев",
+		"consumerKey": "ZFlsCr6exZ75keOmRpm858WfT",
+		"consumerSecret": "RhTzASK00TpnEJSV9tJLnzrvB42wyJBdfJp3xbkinJDoXoH5Jy",
+		"token": "840491087659749376-cu6x2TSRAdxiO94t5v99WHgtiAvkrUJ",
+		"tokenSecret": "MG6DXp1Ho2IxSAkgmVKjgeIyNRMQ0WnyDKQtsmApTiCWm"
+	},
+	{
 		"id": "839964417445994496",
 		"name": "Валерия Семенова",
 		"consumerKey": "jvm3nPD4xDcKHO3MDkgUrOAD5",
@@ -14,13 +54,5 @@
 		"consumerSecret": "gNqMyZ5kdt0PPa9oPSkxWqSILklDQnroQDk4d9K37iRavDgkfL",
 		"token": "839960813276372998-iA2ulVXToZnpAx9VQCwTv811jfLyw3B",
 		"tokenSecret": "o1stHwR8YBeXqI4QwdgAOG6IasdDAv4Lq5vYqkGv0oWRW"
-	},
-	{
-		"id": "831976240911376394",
-		"name": "psl_news",
-		"consumerKey": "p9p371gJa16FrATNAeFJJqQaA",
-		"consumerSecret": "Ngi3GFrdvsF9M7qbF1DHw1obaPgBCKpd3kVxYaZaBySpbvhe1O",
-		"token": "831976240911376394-4tSnna1gJYsFVTabzRavRzfgHQcmi7Q",
-		"tokenSecret": "5RD4a2aPBFmit2jizijgOMxy3XpuGcdMiGDD2rQUzPbNZ"
 	}
 ]

@@ -17,27 +17,28 @@ async function go(log: (msg: string) => void) {
 	for (const user of users) {
 		const twitterBot = new TwitterBot(user)
 
-		// await twitterBot.like("839177774359261184")
-		// await twitterBot.reply("839177558046420993")
-
 		const tweets = await twitterBot.getPostsList(300)
 		log(`end obtain tweets`)
 
 		await writeFile("tweets.json", JSON.stringify(tweets, (key, value) => key === "retweeted" || key === "favorited" ? undefined : value, "\t"))
 		log(`end writing tweets.json`)
 
-/*
-		const tweetsSettings: TweetSettings[] = tweets.map(tweet => ({
-			id: tweet.id,
-			id_str: tweet.id_str,
-			retweetPercent: Math.random(),
-			favouritePercent: Math.random()
-		}))
+		let tweetsSettings = <TweetSettings[]>JSON.parse(await readFile("tweets.settings.json"))
+		log(`end reading tweets.setting.json`)
+
+		tweetsSettings = tweets
+			.filter(tweet => !tweetsSettings.find(ts => ts.id === tweet.id))
+			.map(tweet => ({
+				id: tweet.id,
+				id_str: tweet.id_str,
+				retweetPercent: Math.random(),
+				retweetedBy: [],
+				favouritePercent: Math.random(),
+				favoritedBy: []
+			}))
+			.concat(tweetsSettings)
 		await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
 		log(`end writing tweets.setting.json`)
-*/
-		const tweetsSettings = <TweetSettings[]>JSON.parse(await readFile("tweets.settings.json"))
-		log(`end reading tweets.setting.json`)
 
 		for (const tweet of tweets.filter(t => t.favorited)) {
 			const tweetSettings = tweetsSettings.find(t => t.id === tweet.id)
@@ -64,6 +65,9 @@ async function go(log: (msg: string) => void) {
 
 		for (const tweetSettings of tweetsSettings) {
 			const tweet = tweets.find(t => t.id === tweetSettings.id)
+
+			if (!tweet)
+				continue
 
 			if (tweet.favorite_count < Math.round(tweetSettings.favouritePercent * usersCount)) {
 				if (Math.round(Math.random()) && (tweetSettings.favoritedBy || []).indexOf(user.id) === -1) {
@@ -105,7 +109,7 @@ async function go(log: (msg: string) => void) {
 async function safeGo() {
 	const log = (msg: string) => {
 		console.log(`${new Date().toLocaleTimeString()}: ${msg}\r\n`)
-		appendFile("log.log", `${new Date().toLocaleTimeString()}: ${msg}\r\n`)
+		appendFile(`log-${new Date().toLocaleDateString()}.log`, `${new Date().toLocaleTimeString()}: ${msg}\r\n`)
 	}
 
 	try {
