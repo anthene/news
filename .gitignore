@@ -2,4 +2,5 @@ news
 **/*.d.ts
 **/*.js
 **/*.js.map
+**/*.log
 **/node_modules

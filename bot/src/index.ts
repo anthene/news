@@ -102,17 +102,22 @@ async function setLikesAndRetweets(
 				continue
 
 			if (tweet.favorite_count < Math.round(tweetSettings.favouritePercent * usersCount)) {
-				if (Math.round(Math.random()) && (!tweetSettings.favoritedBy || tweetSettings.favoritedBy.indexOf(user.id) === -1)) {
-					await twitterBot.like(tweet.id_str)
-					tweet.favorite_count++
-					await writeFile("tweets.json", JSON.stringify(tweets, (key, value) => key === "retweeted" || key === "favorited" ? undefined : value, "\t"))
-					if (!tweetSettings.favoritedBy)
-						tweetSettings.favoritedBy = []
-					tweetSettings.favoritedBy.push(user.id)
-					await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
-					log(`tweet (${tweet.id_str}) like by ${user.name}`)
+				if (Math.round(Math.random())) {
+					if (!tweetSettings.favoritedBy || tweetSettings.favoritedBy.indexOf(user.id) === -1) {
+						await twitterBot.like(tweet.id_str)
+						tweet.favorite_count++
+						await writeFile("tweets.json", JSON.stringify(tweets, (key, value) => key === "retweeted" || key === "favorited" ? undefined : value, "\t"))
+						if (!tweetSettings.favoritedBy)
+							tweetSettings.favoritedBy = []
+						tweetSettings.favoritedBy.push(user.id)
+						await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
+						log(`tweet (${tweet.id_str}) like by ${user.name}`)
 
-					await wait(random(10, 30))
+						await wait(random(10, 30))
+					}
+					else {
+						log(`tweet (${tweet.id_str}) already favorited by ${user.name}`)
+					}
 				}
 				else {
 					log(`tweet (${tweet.id_str}) like skipped`)
@@ -123,17 +128,22 @@ async function setLikesAndRetweets(
 			}
 
 			if (tweet.retweet_count < Math.round(tweetSettings.retweetPercent * usersCount)) {
-				if (Math.round(Math.random()) && (!tweetSettings.retweetedBy || tweetSettings.retweetedBy.indexOf(user.id) === -1)) {
-					await twitterBot.reply(tweet.id_str)
-					tweet.retweet_count++
-					await writeFile("tweets.json", JSON.stringify(tweets, (key, value) => key === "retweeted" || key === "favorited" ? undefined : value, "\t"))
-					if (!tweetSettings.retweetedBy)
-						tweetSettings.retweetedBy = []
-					tweetSettings.retweetedBy.push(user.id)
-					await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
-					log(`tweet (${tweet.id_str}) retweeted by ${user.name}`)
+				if (Math.round(Math.random())) {
+					if (!tweetSettings.retweetedBy || tweetSettings.retweetedBy.indexOf(user.id) === -1) {
+						await twitterBot.reply(tweet.id_str)
+						tweet.retweet_count++
+						await writeFile("tweets.json", JSON.stringify(tweets, (key, value) => key === "retweeted" || key === "favorited" ? undefined : value, "\t"))
+						if (!tweetSettings.retweetedBy)
+							tweetSettings.retweetedBy = []
+						tweetSettings.retweetedBy.push(user.id)
+						await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
+						log(`tweet (${tweet.id_str}) retweeted by ${user.name}`)
 
-					await wait(random(10, 30))
+						await wait(random(10, 30))
+					}
+					else {
+						log(`tweet (${tweet.id_str}) already retweeted by ${user.name}`)
+					}
 				}
 				else {
 					log(`tweet (${tweet.id_str}) retweet skipped`)

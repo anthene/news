@@ -4,6 +4,7 @@
 		".vscode": true,
 		"**/*/bin": true,
 		"*/node_modules": true,
+		"**/*.log": true,
 		"**/*.d.ts": true,
 		"**/*.js.map": true,
 		"**/*.js": true
