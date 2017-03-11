@@ -20,7 +20,7 @@
 	{
 		"id": 840285881579786200,
 		"id_str": "840285881579786240",
-		"retweet_count": 5,
+		"retweet_count": 6,
 		"favorite_count": 5
 	},
 	{
@@ -38,7 +38,7 @@
 	{
 		"id": 840085750091718700,
 		"id_str": "840085750091718656",
-		"retweet_count": 3,
+		"retweet_count": 6,
 		"favorite_count": 6
 	},
 	{
@@ -99,7 +99,7 @@
 		"id": 839577887888003100,
 		"id_str": "839577887888003072",
 		"retweet_count": 2,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 839577558018584600,
@@ -159,7 +159,7 @@
 		"id": 839004335585509400,
 		"id_str": "839004335585509376",
 		"retweet_count": 3,
-		"favorite_count": 3
+		"favorite_count": 4
 	},
 	{
 		"id": 838851913743548400,
@@ -182,7 +182,7 @@
 	{
 		"id": 838849976633602000,
 		"id_str": "838849976633602049",
-		"retweet_count": 4,
+		"retweet_count": 6,
 		"favorite_count": 1
 	},
 	{
@@ -231,7 +231,7 @@
 		"id": 838645954244902900,
 		"id_str": "838645954244902912",
 		"retweet_count": 0,
-		"favorite_count": 1
+		"favorite_count": 2
 	},
 	{
 		"id": 838515591514320900,
@@ -339,7 +339,7 @@
 		"id": 837768613541077000,
 		"id_str": "837768613541076993",
 		"retweet_count": 3,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 837768156915634200,
@@ -465,7 +465,7 @@
 		"id": 836895467053133800,
 		"id_str": "836895467053133826",
 		"retweet_count": 5,
-		"favorite_count": 4
+		"favorite_count": 5
 	},
 	{
 		"id": 836666811143745500,
@@ -501,7 +501,7 @@
 		"id": 836529213951868900,
 		"id_str": "836529213951868928",
 		"retweet_count": 4,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 836524100294168600,
@@ -596,7 +596,7 @@
 	{
 		"id": 836303905680150500,
 		"id_str": "836303905680150530",
-		"retweet_count": 5,
+		"retweet_count": 6,
 		"favorite_count": 6
 	},
 	{
@@ -645,25 +645,25 @@
 		"id": 835955533580550100,
 		"id_str": "835955533580550145",
 		"retweet_count": 5,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 835955430333550600,
 		"id_str": "835955430333550592",
-		"retweet_count": 3,
+		"retweet_count": 4,
 		"favorite_count": 2
 	},
 	{
 		"id": 835955223562715100,
 		"id_str": "835955223562715136",
-		"retweet_count": 3,
+		"retweet_count": 4,
 		"favorite_count": 3
 	},
 	{
 		"id": 835955123666972700,
 		"id_str": "835955123666972673",
 		"retweet_count": 2,
-		"favorite_count": 3
+		"favorite_count": 4
 	},
 	{
 		"id": 835954959275470800,
@@ -717,7 +717,7 @@
 		"id": 835430155497656300,
 		"id_str": "835430155497656320",
 		"retweet_count": 2,
-		"favorite_count": 1
+		"favorite_count": 2
 	},
 	{
 		"id": 835426447661625300,
@@ -746,7 +746,7 @@
 	{
 		"id": 835227227260391400,
 		"id_str": "835227227260391424",
-		"retweet_count": 4,
+		"retweet_count": 5,
 		"favorite_count": 4
 	},
 	{
@@ -776,7 +776,7 @@
 	{
 		"id": 835064584864149500,
 		"id_str": "835064584864149504",
-		"retweet_count": 5,
+		"retweet_count": 6,
 		"favorite_count": 0
 	},
 	{
@@ -788,7 +788,7 @@
 	{
 		"id": 835054113926807600,
 		"id_str": "835054113926807552",
-		"retweet_count": 2,
+		"retweet_count": 3,
 		"favorite_count": 4
 	},
 	{
@@ -843,7 +843,7 @@
 		"id": 834859354247540700,
 		"id_str": "834859354247540737",
 		"retweet_count": 3,
-		"favorite_count": 4
+		"favorite_count": 5
 	},
 	{
 		"id": 834859137313992700,
@@ -861,7 +861,7 @@
 		"id": 834858756198514700,
 		"id_str": "834858756198514690",
 		"retweet_count": 5,
-		"favorite_count": 4
+		"favorite_count": 5
 	},
 	{
 		"id": 834527893380284400,
@@ -879,7 +879,7 @@
 		"id": 834417516487331800,
 		"id_str": "834417516487331840",
 		"retweet_count": 3,
-		"favorite_count": 4
+		"favorite_count": 5
 	},
 	{
 		"id": 834403048478892000,
@@ -897,7 +897,7 @@
 		"id": 834338483120508900,
 		"id_str": "834338483120508929",
 		"retweet_count": 4,
-		"favorite_count": 4
+		"favorite_count": 5
 	},
 	{
 		"id": 834312430784278500,
@@ -915,7 +915,7 @@
 		"id": 834164897143521300,
 		"id_str": "834164897143521281",
 		"retweet_count": 4,
-		"favorite_count": 4
+		"favorite_count": 5
 	},
 	{
 		"id": 834142894848094200,
@@ -963,7 +963,7 @@
 		"id": 833974780009275400,
 		"id_str": "833974780009275392",
 		"retweet_count": 4,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 833939832925597700,
@@ -974,7 +974,7 @@
 	{
 		"id": 833934106610131000,
 		"id_str": "833934106610130945",
-		"retweet_count": 3,
+		"retweet_count": 4,
 		"favorite_count": 3
 	},
 	{
@@ -1005,13 +1005,13 @@
 		"id": 833728134537175000,
 		"id_str": "833728134537175041",
 		"retweet_count": 2,
-		"favorite_count": 3
+		"favorite_count": 4
 	},
 	{
 		"id": 833727964823089200,
 		"id_str": "833727964823089155",
 		"retweet_count": 5,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 833700882579652600,
@@ -1059,12 +1059,12 @@
 		"id": 833562996421050400,
 		"id_str": "833562996421050369",
 		"retweet_count": 0,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 833412213234864100,
 		"id_str": "833412213234864129",
-		"retweet_count": 4,
+		"retweet_count": 5,
 		"favorite_count": 0
 	},
 	{
@@ -1082,7 +1082,7 @@
 	{
 		"id": 833377601179770900,
 		"id_str": "833377601179770883",
-		"retweet_count": 2,
+		"retweet_count": 3,
 		"favorite_count": 0
 	},
 	{
@@ -1095,7 +1095,7 @@
 		"id": 833376882087301100,
 		"id_str": "833376882087301121",
 		"retweet_count": 6,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 832986200721985500,
@@ -1155,7 +1155,7 @@
 		"id": 832658526539436000,
 		"id_str": "832658526539436033",
 		"retweet_count": 4,
-		"favorite_count": 5
+		"favorite_count": 6
 	},
 	{
 		"id": 832650641394716700,

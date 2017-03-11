@@ -9,7 +9,8 @@
     "tsc": "tsc",
     "tsc:spec": "tsc -p tsconfig.spec.json",
     "test": "npm run tsc:spec && npm run jasmine",
-    "start": "npm run tsc && node bin/index"
+    "start:tsc": "npm run tsc && npm start",
+    "start": "node bin/index"
   },
   "author": "",
   "license": "ISC",

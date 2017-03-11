@@ -4,6 +4,7 @@ export * from "./twitter-request"
 
 import { appendFile as af, writeFile as wf, readFile as rf } from "fs"
 import { TwitterBot } from "./twitter-bot"
+import { Tweet } from "./tweet"
 import { TweetSettings } from "./tweet-settings"
 import { UserSettings } from "./user-settings"
 
@@ -15,6 +16,11 @@ async function go(log: (msg: string) => void) {
 	log(`users read: ${JSON.stringify(users, undefined, "\t")}`)
 
 	for (const user of users) {
+		await processUser(user, usersCount, log)
+	}
+}
+
+async function processUser(user: UserSettings, usersCount: number, log: (msg: string) => void) {
 		const twitterBot = new TwitterBot(user)
 
 		const tweets = await twitterBot.getPostsList(300)
@@ -25,6 +31,22 @@ async function go(log: (msg: string) => void) {
 
 		let tweetsSettings = <TweetSettings[]>JSON.parse(await readFile("tweets.settings.json"))
 		log(`end reading tweets.setting.json`)
+
+		await merge(tweets, tweetsSettings)
+		log(`end merging tweets to  tweets.setting.json`)
+
+		await fillFavoritedAndRetweetedCollections(tweets, tweetsSettings, user)
+		log(`end updating for favourites and retweets tweets.setting.json`)
+
+		await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
+		log(`end saving tweets.setting.json`)
+
+		await setLikesAndRetweets(tweets, tweetsSettings, twitterBot, usersCount, user, log)
+}
+
+async function merge(
+		tweets: Tweet[],
+		tweetsSettings: TweetSettings[]) {
 
 		tweetsSettings = tweets
 			.filter(tweet => !tweetsSettings.find(ts => ts.id === tweet.id))
@@ -37,8 +59,12 @@ async function go(log: (msg: string) => void) {
 				favoritedBy: []
 			}))
 			.concat(tweetsSettings)
-		await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
-		log(`end writing tweets.setting.json`)
+}
+
+async function fillFavoritedAndRetweetedCollections(
+		tweets: Tweet[],
+		tweetsSettings: TweetSettings[],
+		user: UserSettings) {
 
 		for (const tweet of tweets.filter(t => t.favorited)) {
 			const tweetSettings = tweetsSettings.find(t => t.id === tweet.id)
@@ -59,9 +85,15 @@ async function go(log: (msg: string) => void) {
 				tweetSettings.retweetedBy.push(user.id)
 			}
 		}
+}
 
-		await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
-		log(`end updating for favourites and retweets tweets.setting.json`)
+async function setLikesAndRetweets(
+		tweets: Tweet[],
+		tweetsSettings: TweetSettings[],
+		twitterBot: TwitterBot,
+		usersCount: number,
+		user: UserSettings,
+		log: (msg: string) => void) {
 
 		for (const tweetSettings of tweetsSettings) {
 			const tweet = tweets.find(t => t.id === tweetSettings.id)
@@ -70,10 +102,14 @@ async function go(log: (msg: string) => void) {
 				continue
 
 			if (tweet.favorite_count < Math.round(tweetSettings.favouritePercent * usersCount)) {
-				if (Math.round(Math.random()) && (tweetSettings.favoritedBy || []).indexOf(user.id) === -1) {
+				if (Math.round(Math.random()) && (!tweetSettings.favoritedBy || tweetSettings.favoritedBy.indexOf(user.id) === -1)) {
 					await twitterBot.like(tweet.id_str)
 					tweet.favorite_count++
 					await writeFile("tweets.json", JSON.stringify(tweets, (key, value) => key === "retweeted" || key === "favorited" ? undefined : value, "\t"))
+					if (!tweetSettings.favoritedBy)
+						tweetSettings.favoritedBy = []
+					tweetSettings.favoritedBy.push(user.id)
+					await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
 					log(`tweet (${tweet.id_str}) like by ${user.name}`)
 
 					await wait(random(10, 30))
@@ -87,10 +123,14 @@ async function go(log: (msg: string) => void) {
 			}
 
 			if (tweet.retweet_count < Math.round(tweetSettings.retweetPercent * usersCount)) {
-				if (Math.round(Math.random()) && (tweetSettings.retweetedBy || []).indexOf(user.id) === -1) {
+				if (Math.round(Math.random()) && (!tweetSettings.retweetedBy || tweetSettings.retweetedBy.indexOf(user.id) === -1)) {
 					await twitterBot.reply(tweet.id_str)
 					tweet.retweet_count++
 					await writeFile("tweets.json", JSON.stringify(tweets, (key, value) => key === "retweeted" || key === "favorited" ? undefined : value, "\t"))
+					if (!tweetSettings.retweetedBy)
+						tweetSettings.retweetedBy = []
+					tweetSettings.retweetedBy.push(user.id)
+					await writeFile("tweets.settings.json", JSON.stringify(tweetsSettings, undefined, "\t"))
 					log(`tweet (${tweet.id_str}) retweeted by ${user.name}`)
 
 					await wait(random(10, 30))
@@ -103,7 +143,6 @@ async function go(log: (msg: string) => void) {
 				log(`tweet (${tweet.id_str}) retweetes are full`)
 			}
 		}
-	}
 }
 
 async function safeGo() {
