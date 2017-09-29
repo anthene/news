@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "news-core": "file:../news-core-new",
+    "news-core": "file:../news-core",
     "news-db-plugin": "file:../news-db-plugin"
   },
   "devDependencies": {

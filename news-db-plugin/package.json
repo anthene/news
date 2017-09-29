@@ -14,7 +14,7 @@
     "typescript": "^2.1.6"
   },
   "dependencies": {
-    "news-core": "file:../news-core-new",
+    "news-core": "file:../news-core",
     "pg-io": "^0.8.2"
   }
 }
