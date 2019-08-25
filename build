@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd news-core
+npm i
+npm start
+cd ../news-web-core
+npm i
+npm start
+cd ../news-ng
+npm i
+npm run prestart
+cd bin
+cp -rf * ../../Web/wwwroot/
+cp index.html ../../Web/Views/Shared/_Layout.cshtml
+cd ../..
