@@ -40,6 +40,18 @@ namespace Web.Controllers
             return Ok(new object[0]);
         }
 
+        [HttpDelete("short/{date}")]
+        public IActionResult DeleteShortNews(DateTime date)
+        {
+            var fileName = GetShortNewsListFilePath(_webRootPath, date);
+            if (!Exists(fileName))
+                return BadRequest("Show news for such a date does not exist.");
+
+            Delete(fileName);
+
+            return Ok();
+        }
+
         [HttpPost("short")]
         public IActionResult AddShortNews([FromBody] ShortNews[] shortNews)
         {
@@ -48,12 +60,15 @@ namespace Web.Controllers
                 return BadRequest("The short news list contains different dates.");
 
             var date = dates.Single();
-            var fileName = Combine(_webRootPath, "data", $"short-news-list-{date.ToString("yyyyMMdd")}.json");
+            var fileName = GetShortNewsListFilePath(_webRootPath, date);
 
             WriteAllText(fileName, SerializeObject(shortNews, _jsonSerializerSettings));
 
             return Ok();
         }
+
+        static string GetShortNewsListFilePath(string webRootPath, DateTime date) =>
+            Combine(webRootPath, "data", $"short-news-list-{date.ToString("yyyyMMdd")}.json");
     }
 
     public class ShortNews
