@@ -47,6 +47,19 @@ namespace Web.Controllers
         {
             var (newsFilePath, imageFilePath) = GetNewsFilePaths(_webRootPath, id);
 
+            var news = DeserializeObject<News>(ReadAllText(newsFilePath), _jsonSerializerSettings);
+
+            var newsListFilePath = GetNewsListFilePath(_webRootPath, news.Date);
+
+            if (Exists(newsListFilePath))
+            {
+                var newsList = DeserializeObject<ICollection<News>>(ReadAllText(newsListFilePath), _jsonSerializerSettings);
+                var newsToRemove = newsList.SingleOrDefault(n => n.Id == news.Id);
+                if (newsToRemove != default(News))
+                    newsList.Remove(newsToRemove);
+                WriteAllText(newsListFilePath, SerializeObject(newsList, _jsonSerializerSettings));
+            }
+
             if (!Exists(newsFilePath))
                 return NotFound($"The news (ID: {id}) has not been found. Check the ID.");
 
@@ -74,7 +87,7 @@ namespace Web.Controllers
             return Ok(news.Id);
         }
 
-        [HttpGet("news/{id}")]
+        [HttpGet("news/{id}/publish")]
         public IActionResult PublishNews(uint id)
         {
             var newsFilePath = GetNewsFilePath(_webRootPath, id);
