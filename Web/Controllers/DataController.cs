@@ -31,13 +31,13 @@ namespace Web.Controllers
         }
 
         [HttpGet("news-list-{date}.json")]
-        public IActionResult News(string date)
+        public IActionResult GetNews(string date)
         {
             return Ok(new object[0]);
         }
 
         [HttpGet("short-news-list-{date}.json")]
-        public IActionResult ShortNews(string date)
+        public IActionResult GetShortNews(string date)
         {
             return Ok(new object[0]);
         }
@@ -66,13 +66,36 @@ namespace Web.Controllers
         {
             news.Id = ToUInt32(new Random().Next(int.MaxValue));
 
-            var newsFileName = GetNewsFilePath(_webRootPath, news.Id);
-            var imageFileName = GetNewsImageFilePath(_webRootPath, news.Id);
+            var (newsFilePath, imageFilePath) = GetNewsFilePaths(_webRootPath, news.Id);
 
-            WriteAllText(newsFileName, SerializeObject(news, _jsonSerializerSettings));
-            WriteAllBytes(imageFileName, FromBase64String(news.Image.Data));
+            WriteAllText(newsFilePath, SerializeObject(news, _jsonSerializerSettings));
+            WriteAllBytes(imageFilePath, FromBase64String(news.Image.Data));
 
             return Ok(news.Id);
+        }
+
+        [HttpGet("news/{id}")]
+        public IActionResult PublishNews(uint id)
+        {
+            var newsFilePath = GetNewsFilePath(_webRootPath, id);
+
+            if (!Exists(newsFilePath))
+                return NotFound($"The news (ID: {id}) has not been found. Check the ID.");
+
+            var news = DeserializeObject<News>(ReadAllText(newsFilePath), _jsonSerializerSettings);
+
+            var newsListFilePath = GetNewsListFilePath(_webRootPath, news.Date);
+
+            if (!Exists(newsListFilePath))
+                WriteAllText(newsListFilePath, SerializeObject(new News[0], _jsonSerializerSettings));
+
+            var newsList = DeserializeObject<ICollection<News>>(ReadAllText(newsListFilePath), _jsonSerializerSettings);
+
+            newsList.Add(news);
+
+            WriteAllText(newsListFilePath, SerializeObject(newsList.OrderByDescending(n => n.Date), _jsonSerializerSettings));
+
+            return Ok();
         }
 
         [HttpDelete("short/{date}")]
@@ -80,7 +103,7 @@ namespace Web.Controllers
         {
             var fileName = GetShortNewsListFilePath(_webRootPath, date);
             if (!Exists(fileName))
-                return BadRequest("Show news for such a date does not exist.");
+                return BadRequest("Short news for such a date does not exist.");
 
             Delete(fileName);
 
@@ -102,18 +125,23 @@ namespace Web.Controllers
             return Ok();
         }
 
+        static string GetDataFolder(string webRootPath) =>
+            Combine(webRootPath, "data");
+
         static string GetNewsFilePath(string webRootPath, uint id) =>
-            Combine(webRootPath, "data", $"{id}.json");
+            Combine(GetDataFolder(webRootPath), $"{id}.json");
 
         static string GetNewsImageFilePath(string webRootPath, uint id) =>
-            Combine(webRootPath, "data", "images", $"{id}.jpg");
+            Combine(GetDataFolder(webRootPath), "images", $"{id}.jpg");
+
+        static string GetNewsListFilePath(string webRootPath, DateTime date) =>
+            Combine(GetDataFolder(webRootPath), $"news-list-{date.ToString("yyyyMMdd")}.json");
 
         static string GetShortNewsListFilePath(string webRootPath, DateTime date) =>
-            Combine(webRootPath, "data", $"short-news-list-{date.ToString("yyyyMMdd")}.json");
+            Combine(GetDataFolder(webRootPath), $"short-news-list-{date.ToString("yyyyMMdd")}.json");
 
         static (string news, string image) GetNewsFilePaths(string webRootPath, uint id) =>
             (GetNewsFilePath(webRootPath, id), GetNewsImageFilePath(webRootPath, id));
-
     }
 
     public interface INews
@@ -146,6 +174,7 @@ namespace Web.Controllers
     public class Image
     {
         public string Owner { get; set; }
+
         public string Data { get; set; }
     }
 }
