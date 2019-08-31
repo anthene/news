@@ -10,7 +10,7 @@ export class BookmarkService {
 			(<any>this).title = document.title;
 		}
 		else {
-			alert("Нажмите Ctrl + D для добавления страницы в закладки")
+			alert("Press Ctrl + D to add to bookmarks")
 		}
 	}
 

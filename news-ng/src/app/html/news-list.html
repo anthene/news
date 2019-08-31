@@ -18,7 +18,7 @@
 		</div>
 	</div>
 </div>
-<div id="main" class="tile">ГЛАВНОЕ</div>
+<div id="main" class="tile">TOP STORIES</div>
 <div class="news-list" [@routeAnimation]="'active'">
 	<a *ngFor="let newsListItem of getNewsList()"
 		class="news-list-item tile"
@@ -29,5 +29,5 @@
 	</a>
 </div>
 <div class="more-news" (click)="getMoreNews()" [hidden]="!initialLoadCompleted">
-	Еще новости
+	More news
 </div>

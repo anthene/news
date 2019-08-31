@@ -1,6 +1,6 @@
 <a class="page-header tile" routerLink="/">
 	<div class="name">
-		<span class="psl">ПСЛ</span><span class="last">ПОСЛЕДНИЕ</span><span class="news">НОВОСТИ</span>
+		<span class="psl">LST</span><span class="last">LATEST</span><span class="news">NEWS</span>
 	</div>
 	<!--<div class="motto">БУДЬ В КУРСЕ</div>-->
 </a>
@@ -23,16 +23,16 @@
 	</a><a href="https://fb.com/PslNewsRu" target="_blank">
 		<img src="/sn/fb.png" />
 	</a><div id="add-bookmark" class="more-news" *ngIf="bookmarkService.enabled()" (click)="bookmarkService.addBookmark()">
-		Добавить в закладки
+		Add to bookmarks
 	</div>
 </div>
 
 <div class="menu tile">
 	<div class="menu-item pointer" (click)="currentMenuItem = 0" [class.active-menu-item]="currentMenuItem === 0">
-		Одной строкой
+		In brief
 	</div>
 	<div class="menu-item pointer" (click)="currentMenuItem = 1" [class.active-menu-item]="currentMenuItem === 1">
-		Главное
+		Top Stories
 	</div>
 </div>
 
@@ -58,13 +58,13 @@
 		</div>
 	</div>
 	<div class="short-news-list">
-		<div id="one-line" class="tile">ОДНОЙ СТРОКОЙ</div>
+		<div id="one-line" class="tile">IN BRIEF</div>
 		<div *ngFor="let shortNews of shortNewsList" class="short-news tile">
 			<div class="time">{{shortNews.date | customTime}}</div>
 			<div class="header">{{shortNews.header}}</div>
 		</div>
 		<div class="more-news" (click)="getMoreNews()" [hidden]="!initialLoadCompleted">
-			Еще новости
+			More news
 		</div>
 	</div>
 </div>

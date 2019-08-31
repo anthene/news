@@ -21,7 +21,7 @@ export class AppController {
 
 	protected onInit(): void {
 		this.getData(new Date());
-		this.router.events.subscribe((value: any) => this.titleService.setTitle('Последние новости'));
+		this.router.events.subscribe((value: any) => this.titleService.setTitle('Latest news'));
 	}
 
 	getMoreNews(): void {
