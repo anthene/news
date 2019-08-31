@@ -9,6 +9,7 @@ using static System.IO.Path;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Web.Controllers
 {
@@ -166,8 +167,10 @@ namespace Web.Controllers
 
     public class ShortNews : INews
     {
+        // todo: make validation
         public DateTime Date { get; set; }
 
+        [Required]
         public string Header { get; set; }
     }
 
@@ -175,19 +178,26 @@ namespace Web.Controllers
     {
         public uint Id { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
+        [Required]
         public string Header { get; set; }
 
+        [Required]
         public Image Image { get; set; }
 
+        [Required]
+        [MinLength(1)]
         public IEnumerable<string> Content { get; set; }
     }
 
     public class Image
     {
+        [Required]
         public string Owner { get; set; }
 
+        [Required]
         public string Data { get; set; }
     }
 }
