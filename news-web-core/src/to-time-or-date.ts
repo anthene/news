@@ -13,5 +13,5 @@ export function toEnTimeOrDate(date: Date) {
 }
 
 function toDate(date: Date) {
-	return new Date(date.getFullYear(), 1 + date.getMonth(), date.getDate());
+	return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 }
