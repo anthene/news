@@ -10,6 +10,7 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace Web.Controllers
 {
@@ -18,13 +19,29 @@ namespace Web.Controllers
     public class DataController : Controller
     {
         readonly string _webRootPath;
-        readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
-        {
-            ContractResolver = new DefaultContractResolver
+        readonly JsonSerializerSettings _newsJsonSerializerSettings = GetJsonSerializerSettings<IgnorePropertyContractResolver>(cr => Init(cr, "data"));
+        readonly JsonSerializerSettings _newsListJsonSerializerSettings = GetJsonSerializerSettings<IgnorePropertyContractResolver>(cr => Init(cr, "data", "content"));
+        readonly JsonSerializerSettings _jsonSerializerSettings = GetJsonSerializerSettings<DefaultContractResolver>(Init);
+
+        static JsonSerializerSettings GetJsonSerializerSettings<TContractResolver>(Func<TContractResolver, TContractResolver> initContractResolver)
+            where TContractResolver : DefaultContractResolver, new () =>
+            new JsonSerializerSettings
             {
-                NamingStrategy = new CamelCaseNamingStrategy()
-            }
-        };
+                ContractResolver = initContractResolver(new TContractResolver())
+            };
+
+        static DefaultContractResolver Init(DefaultContractResolver contractResolver)
+        {
+            contractResolver.NamingStrategy = new CamelCaseNamingStrategy();
+            return contractResolver;
+        }
+
+        static IgnorePropertyContractResolver Init(IgnorePropertyContractResolver contractResolver, params string[] propetyNames)
+        {
+            Init((DefaultContractResolver)contractResolver);
+            contractResolver.PropertyNames = propetyNames;
+            return contractResolver;
+        }
 
         public DataController(IHostingEnvironment env)
         {
@@ -82,7 +99,7 @@ namespace Web.Controllers
 
             var (newsFilePath, imageFilePath) = GetNewsFilePaths(_webRootPath, news.Id);
 
-            WriteAllText(newsFilePath, SerializeObject(news, _jsonSerializerSettings));
+            WriteAllText(newsFilePath, SerializeObject(news, _newsJsonSerializerSettings));
             WriteAllBytes(imageFilePath, FromBase64String(news.Image.Data));
 
             return Ok(news.Id);
@@ -96,18 +113,18 @@ namespace Web.Controllers
             if (!Exists(newsFilePath))
                 return NotFound($"The news (ID: {id}) has not been found. Check the ID.");
 
-            var news = DeserializeObject<News>(ReadAllText(newsFilePath), _jsonSerializerSettings);
+            var news = DeserializeObject<News>(ReadAllText(newsFilePath), _newsJsonSerializerSettings);
 
             var newsListFilePath = GetNewsListFilePath(_webRootPath, news.Date);
 
             if (!Exists(newsListFilePath))
-                WriteAllText(newsListFilePath, SerializeObject(new News[0], _jsonSerializerSettings));
+                WriteAllText(newsListFilePath, SerializeObject(new News[0], _newsListJsonSerializerSettings));
 
-            var newsList = DeserializeObject<ICollection<News>>(ReadAllText(newsListFilePath), _jsonSerializerSettings);
+            var newsList = DeserializeObject<ICollection<News>>(ReadAllText(newsListFilePath), _newsListJsonSerializerSettings);
 
             newsList.Add(news);
 
-            WriteAllText(newsListFilePath, SerializeObject(newsList.OrderByDescending(n => n.Date), _jsonSerializerSettings));
+            WriteAllText(newsListFilePath, SerializeObject(newsList.OrderByDescending(n => n.Date), _newsListJsonSerializerSettings));
 
             return Ok();
         }
@@ -199,5 +216,22 @@ namespace Web.Controllers
 
         [Required]
         public string Data { get; set; }
+    }
+
+    public class IgnorePropertyContractResolver : DefaultContractResolver
+    {
+        public IEnumerable<string> PropertyNames;
+
+        // public static readonly ShouldSerializeContractResolver Instance = new ShouldSerializeContractResolver();
+
+        protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
+        {
+            var property = base.CreateProperty(member, memberSerialization);
+
+            if (PropertyNames.Contains(property.PropertyName))
+                property.ShouldSerialize = instance => false;
+
+            return property;
+        }
     }
 }
