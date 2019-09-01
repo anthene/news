@@ -65,6 +65,9 @@ namespace Web.Controllers
         {
             var (newsFilePath, imageFilePath) = GetNewsFilePaths(_webRootPath, id);
 
+            if (!Exists(newsFilePath))
+                return NotFound($"The news (ID: {id}) has not been found. Check the ID.");
+
             var news = DeserializeObject<News>(ReadAllText(newsFilePath), _jsonSerializerSettings);
 
             var newsListFilePath = GetNewsListFilePath(_webRootPath, news.Date);
@@ -77,9 +80,6 @@ namespace Web.Controllers
                     newsList.Remove(newsToRemove);
                 WriteAllText(newsListFilePath, SerializeObject(newsList, _jsonSerializerSettings));
             }
-
-            if (!Exists(newsFilePath))
-                return NotFound($"The news (ID: {id}) has not been found. Check the ID.");
 
             Delete(newsFilePath);
 
