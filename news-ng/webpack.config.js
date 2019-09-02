@@ -64,8 +64,10 @@ module.exports = {
             { from: '../sitemap.txt' },
             { from: '../logo.png' },
             { from: '../favicon.ico' },
-            { from: '../bfkh.jpg' },
-            { from: '../rusfond.jpg' },
+            { from: '../sc.jpg' },
+            { from: '../hs.jpg' },
+            { from: '../st.jpg' },
+            { from: '../bf.jpg' },
             { from: "../../node_modules/core-js/client/shim.min.js", to: "libs" },
             { from: "../../node_modules/zone.js/dist/zone.min.js", to: "libs" },
             { from: "../../node_modules/reflect-metadata/Reflect.js", to: "libs" }
